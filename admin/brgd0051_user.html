@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>BRGD_ユーザ管理</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="BRGD ID  Manegement System">
+
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/common.css">
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css">
+  <script type="text/javascript">SyntaxHighlighter.all();</script>
+</head>
+<body style="background-color:#f7efd3">
+  <!-- main -->
+  <div class="main">
+    <div class="container">
+      <div class="row">
+        <div class="contents col-sm-12">
+          <h5>ユーザ編集</h5>
+          <!-- form -->
+          <form class="form-horizontal">
+           <!-- ユーザ名 -->
+           <div class="form-group" style="padding-top: 20px;">
+            <label class="col-sm-2 control-label" for="InputUserName"><span class="label label-default">ユーザ名</span></label>
+            <div class="col-sm-7">
+             <input type="text" class="form-control" id="InputUserName" placeholder="ユーザ名"　>
+           </div>
+         </div><br>
+         <!-- パスワード-->
+         <div class="form-group">
+          <label class="col-sm-2 control-label" for="InputPassword"><span class="label label-default">パスワード</span></label>
+          <div class="col-sm-7">
+           <input type="text" class="form-control" id="InputPassword" placeholder="パスワード">
+         </div>
+       </div><br>
+       <!-- ログイン日時 -->
+       <div class="form-group" style="padding-top: 20px;">
+        <label class="col-sm-2 control-label" for="InputUserLoginDatetime"><span class="label label-default">ログイン日時</span></label>
+        <div class="col-sm-7">
+         <input type="text" class="form-control" id="InputUserLoginDatetime" placeholder="2017/10/10" readonly="readonly">
+       </div>
+     </div><br>
+     <!-- ログアウト日時-->
+     <div class="form-group">
+      <label class="col-sm-2 control-label" for="InputLogooutDatetime"><span class="label label-default">ログアウト日時</span></label>
+      <div class="col-sm-7">
+       <input type="text" class="form-control" id="InputLogooutDatetime" placeholder="2017/10/10" readonly="readonly">
+     </div>
+   </div><br>
+   <!-- ボタン-->
+   <div class="form-group">
+     <label class="col-sm-2 control-label" for="Input"></label>
+     <div class="col-sm-7">
+       <button type="button" class="btn btn-primary">登録</button>
+       <button type="button" class="btn btn-info">更新</button>
+       <button type="button" class="btn btn-danger" onclick="window.close();return false;">閉じる</button>
+     </div>
+   </div><br>
+ </form>
+</div><!-- contents -->
+</div><!-- row -->
+</div><!-- container -->
+</div><!-- main -->
+<script src="../js/jquery-1.11.2.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.scrollUp.min.js"></script>
+</form>
+</body>
+</html>
