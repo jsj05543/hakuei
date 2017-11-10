@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <title>BRGD_スライド管理</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="BRGD ID  Manegement System">
-
   <link rel="stylesheet" href="../css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/common.css">
-  <link rel="shortcut icon" href="../img/favicon.ico" type="favicon.ico"/>
+  <link rel="shortcut icon" href="../img/favicon.ico" type="favicon.ico" />
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css">
-  <script type="text/javascript">SyntaxHighlighter.all();</script>
+  <script type="text/javascript">
+  SyntaxHighlighter.all();
+  </script>
 </head>
+
 <body>
   <!-- header -->
   <header class="header">
@@ -23,44 +26,49 @@
       <div class="container">
         <div class="row">
           <div class="col-md-1"><img style="width: 70px;height: 70px;" src="../img/logo.png" class="img-circle"></div>
-          <div class="col-md-9"><h2>BRGD  ID Manegement System</h2></div>
+          <div class="col-md-9">
+            <h2>BRGD  ID Manegement System</h2></div>
           <div class="col-md-2">
             <a href="../index.html"><h2><button type="button" class="btn btn-success btn-lg">Sign out</button></h2></a>
           </div>
-        </div><!-- row -->
-      </div><!-- container -->
-    </div><!-- topCatch -->
-  </header><!-- header -->
-
+        </div>
+        <!-- row -->
+      </div>
+      <!-- container -->
+    </div>
+    <!-- topCatch -->
+  </header>
+  <!-- header -->
   <!-- main -->
   <div class="main">
     <div class="container">
       <div class="row">
-       <div class="col-sm-3 iframe-menu">
-         <iframe id="iframe-menu" frameborder="0" scrolling="no" src="../brgd0010_leftmenu.html" allowTransparency="true" marginwidth="0" marginheight="0">
-         </iframe>
-       </div>
-       <div class="contents col-sm-9">
-        <h5>スライド管理</h5>
-        <table class="table table-striped table-hover table-bordered">
-          <thead>
-            <tr>
-              <th>画像ID</th>
-              <th>画像名</th>
-              <th>画像場所</th>
-              <th>編集</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>s1.jpg</td>
-              <td>main/img</td>
-              <td>
-                <a href="brgd0091_slide.html" target="_top" onclick="OpenSmallWindow(this.href,null,770,470); return false;">
-                  <button type="button" class="btn btn-info">編集</button>
-                </a>
-                <button type="button" class="btn btn-danger">削除</button></td>
+        <div class="col-sm-3 iframe-menu">
+          <iframe id="iframe-menu" frameborder="0" scrolling="no" src="../brgd0010_leftmenu.html" allowTransparency="true" marginwidth="0" marginheight="0">
+          </iframe>
+        </div>
+        <div class="contents col-sm-9">
+          <h5>スライド管理</h5>
+          <table class="table table-striped table-hover table-bordered">
+            <thead>
+              <tr>
+                <th>画像ID</th>
+                <th>画像名</th>
+                <th>画像場所</th>
+                <th>編集</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>s1.jpg</td>
+                <td>main/img</td>
+                <td>
+                  <a href="brgd0091_slide.html" target="_top" onclick="OpenSmallWindow(this.href,null,770,470); return false;">
+                    <button type="button" class="btn btn-info">編集</button>
+                  </a>
+                  <button type="button" class="btn btn-danger">削除</button>
+                </td>
               </tr>
               <tr>
                 <td>2</td>
@@ -70,44 +78,50 @@
                   <a href="brgd0091_slide.html" target="_top" onclick="OpenSmallWindow(this.href,null,770,470); return false;">
                     <button type="button" class="btn btn-info">編集</button>
                   </a>
-                  <button type="button" class="btn btn-danger">削除</button></td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>s3.jpg</td>
-                  <td>main/img</td>
-                  <td>
-                    <a href="brgd0091_slide.html" target="_top" onclick="OpenSmallWindow(this.href,null,770,470); return false;">
-                      <button type="button" class="btn btn-info">編集</button>
-                    </a>
-                    <button type="button" class="btn btn-danger">削除</button></td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>s4.jpg</td>
-                    <td>main/img</td>
-                    <td>
-                      <a href="brgd0091_slide.html" target="_top" onclick="OpenSmallWindow(this.href,null,770,470); return false;">
-                        <button type="button" class="btn btn-info">編集</button>
-                      </a>
-                      <button type="button" class="btn btn-danger">削除</button></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div><!-- contents -->
-            </div><!-- row -->
-          </div><!-- container -->
-        </div><!-- main -->
+                  <button type="button" class="btn btn-danger">削除</button>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>s3.jpg</td>
+                <td>main/img</td>
+                <td>
+                  <a href="brgd0091_slide.html" target="_top" onclick="OpenSmallWindow(this.href,null,770,470); return false;">
+                    <button type="button" class="btn btn-info">編集</button>
+                  </a>
+                  <button type="button" class="btn btn-danger">削除</button>
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>s4.jpg</td>
+                <td>main/img</td>
+                <td>
+                  <a href="brgd0091_slide.html" target="_top" onclick="OpenSmallWindow(this.href,null,770,470); return false;">
+                    <button type="button" class="btn btn-info">編集</button>
+                  </a>
+                  <button type="button" class="btn btn-danger">削除</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- contents -->
+      </div>
+      <!-- row -->
+    </div>
+    <!-- container -->
+  </div>
+  <!-- main -->
+  <!-- footer -->
+  <footer class="footer">
+    &copy; 2015 bootstrap3-guide.com
+  </footer>
+  <!-- footer -->
+  <script src="../js/jquery-1.11.2.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/jquery.scrollUp.min.js"></script>
+  <script src="../js/common.js"></script>
+</body>
 
-        <!-- footer -->
-        <footer class="footer">
-          &copy; 2015 bootstrap3-guide.com
-        </footer><!-- footer -->
-
-        <script src="../js/jquery-1.11.2.min.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <script src="../js/jquery.scrollUp.min.js"></script>
-        <script src="../js/common.js"></script>
-
-      </body>
-      </html>
+</html>
