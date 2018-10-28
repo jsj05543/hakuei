@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
   <meta charset="UTF-8">
   <title>BRGD_権限管理</title>
@@ -14,10 +13,21 @@
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css">
   <script type="text/javascript">
   SyntaxHighlighter.all();
+  $(function() {
+    //テキストボックスに変更を加えたら発動
+    $('#InputAuthorID').change(function() {
+      //入力したvalue値を変数に格納
+      var val = $('#InputAuthorID').val();
+      //選択したvalue値をp要素に出力
+      $('#InputAuthorName').text(val);
+    });
+  });
   </script>
 </head>
 
 <body style="background-color:#f7efd3">
+<form action="post" id="form1">
+
   <!-- main -->
   <div class="main">
     <div class="container">
@@ -30,7 +40,7 @@
             <div class="form-group" style="padding-top: 20px;">
               <label class="col-sm-2 control-label" for="InputAuthorID"><span class="label label-default">権限番号</span></label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="InputAuthorID" placeholder="ID番号" 　>
+                <input type="text" class="form-control" id="InputAuthorID" placeholder="ID番号" />
               </div>
             </div>
             <br>
@@ -63,6 +73,7 @@
   <script src="../js/jquery-1.11.2.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/jquery.scrollUp.min.js"></script>
+  </form>
 </body>
 
 </html>
