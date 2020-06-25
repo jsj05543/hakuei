@@ -92,11 +92,6 @@ hr { border-color: #bdc9ef;}
    main
 ------------------------------------ */
 
-/* main */
-.main {
-	padding: 20px 0;
-	background-color: #f7efd3;
-}
 
 @media (max-width: 768px) {
 .main {
@@ -104,12 +99,7 @@ hr { border-color: #bdc9ef;}
 }
 }
 
-/* contents */
-.contents {
-	padding: 15px;
-	border: 1px #cdcdcd solid;
-	background-color: #fff;
-}
+
 .top .contents h3 {
 	margin-top: 0;
 	font-size: 18px;
@@ -293,14 +283,7 @@ font-size: 14px;
 	border-radius: 5px;
 }
 
-.contents h5 {
-	font-size: 18px;
-	font-weight: bold;
-	margin-top: 10px;
-	padding: 5px 0 6px 10px;
-	border-left: 7px solid #4990c0;
-	border-bottom: 1px solid #dfdfdf;
-}
+
 
 .imgSmall {
 	max-width: 320px;

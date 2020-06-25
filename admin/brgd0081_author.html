@@ -1,76 +1,124 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>BRGD_権限管理</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="BRGD ID  Manegement System">
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/common.css">
-  <script type="text/javascript">
-  $(function() {
-    //テキストボックスに変更を加えたら発動
-    $('#InputAuthorID').change(function() {
-      //入力したvalue値を変数に格納
-      var val = $('#InputAuthorID').val();
-      //選択したvalue値をp要素に出力
-      $('#InputAuthorName').text(val);
-    });
-  });
-  </script>
-</head>
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>権限登録</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<body style="background-color:#f7efd3">
-<form action="post" id="form1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/style1.css">
 
-  <!-- main -->
-  <div class="main">
-    <div class="container">
-      <div class="row">
-        <div class="contents col-sm-12">
-          <h5>権限区分編集</h5>
-          <!-- form -->
-          <form class="form-horizontal">
-            <!-- 権限番号 -->
-            <div class="form-group" style="padding-top: 20px;">
-              <label class="col-sm-2 control-label" for="InputAuthorID"><span class="label label-default">権限番号</span></label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="InputAuthorID" placeholder="ID番号" />
-              </div>
-            </div>
-            <br>
-            <!-- 国名-->
-            <div class="form-group">
-              <label class="col-sm-2 control-label" for="InputAuthorName"><span class="label label-default">権限名</span></label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="InputAuthorName" placeholder="権限名">
-              </div>
-            </div>
-            <br>
-            <div class="form-group">
-              <label class="col-sm-2 control-label" for="Input"></label>
-              <div class="col-sm-10">
-                <button type="button" class="btn btn-primary">登録</button>
-                <button type="button" class="btn btn-info">更新</button>
-                <button type="button" class="btn btn-danger" onclick="window.close();return false;">閉じる</button>
-              </div>
-            </div>
-            <br>
-          </form>
+
+  </head>
+  <body>
+    <div class="header">
+        <div class="row">
+            <img width="80" height="60" class="col col-4 col-sm-2 col-md-2 col-lg-2  offset-3 offset-sm-2 offset-md-2 offset-lg-2" src="../img/myimg/logo.png" alt="" >
+            <div class="col col-3 col-sm-2 col-md-2 col-lg-2 offset-2 offset-sm-2 offset-md-2 offset-lg-6 pt-2">
+                <img   src="../img/myimg/user-icon1.png" alt="" > <span class="text-white">山田様</span>
+            </div> 
         </div>
-        <!-- contents -->
-      </div>
-      <!-- row -->
+      
     </div>
-    <!-- container -->
-  </div>
-  <!-- main -->
-  <script src="../js/jquery-1.11.2.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/jquery.scrollUp.min.js"></script>
-  </form>
+    
+    <input type="checkbox" id="openSidebarMenu" class="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+        <div class="spinner diagonal part-1"></div>
+        <div class="spinner horizontal"></div>
+        <div class="spinner diagonal part-2"></div>
+    </label>
+    <div id="sidebarMenu">
+        <ul class="sidebarMenuInner">
+            <li><img width="20" height="20"  src="../img/mysvg/home.svg">&nbsp;&nbsp;ホーム</li>
+            <li  class="menuBox">
+                <input type="checkbox" id="label1" class="showInner" />
+                <label for="label1"><img width="20" height="20"  src="../img/mysvg/star.svg">&nbsp;&nbsp;ユーザ情報管理</label>
+                <div class="InnerMenu">
+                    <ul>
+                        <li>ユーザ一覧</li>
+                        <li>ユーザ登録</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="menuBox">
+                <input type="checkbox" id="label2" class="showInner" />
+                <label for="label2"><img width="20" height="20"  src="../img/mysvg/map.svg">&nbsp;&nbsp;区分管理</label>
+                <div class="InnerMenu">
+                    <ul>
+                        <li>国区分管理</li>
+                        <li>ID区分管理</li>
+                        <li>権限区分管理</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="menuBox">
+                <input type="checkbox" id="label3" class="showInner" />
+                <label for="label3"><img width="20" height="20"  src="../img/mysvg/setting.svg">&nbsp;&nbsp;画像管理</label>
+                <div class="InnerMenu">
+                    <ul>
+                        <li>スライド管理</li>
+                        <li>LOGO管理</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="menuBox">
+                <input type="checkbox" id="label4" class="showInner" />
+                <label for="label4"><img width="20" height="20"  src="../img/mysvg/add.svg">&nbsp;&nbsp;画面管理</label>
+                <div class="InnerMenu">
+                    <ul>
+                        <li>ヘッター管理</li>
+                        <li>フッター管理</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="menuBox">
+                <input type="checkbox" id="label5" class="showInner" />
+                <label for="label5"><img width="20" height="20"  src="../img/mysvg/edit.svg">&nbsp;&nbsp;内容管理</label>
+                <div class="InnerMenu">
+                    <ul>
+                        <li>メニュー管理</li>
+                        <li>バージョン管理</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <form class="form-horizontal col-sm-12">
+                    <div class="contents col-sm-12">
+                        <div class="contents-header">権限登録</div>
+                        <div class="contents-body">
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                  <label for="InputAuthorID">権限番号</label>
+                                  <input type="text" class="form-control" id="InputAuthorID" placeholder="権限番号">
+                                </div>
+                                <div class="form-group col-md-4">
+                                  <label for="InputAuthorName">権限名</label>
+                                  <input type="text" class="form-control" id="InputAuthorName" placeholder="権限名">
+                                </div>
+                              </div>
+                        </div>
+                        <div class="contents-footer"> 
+                            <button type="button" class="btn btn-secondary" onclick="window.close();return false;">戻る</button>
+                            <button type="button" class="btn btn-info">登録</button>
+                            <button type="button" class="btn btn-primary">更新</button>
+                            
+                        </div>
+                    </div><!-- contents -->
+                </form><!-- from -->
+            </div><!-- row -->
+        </div><!-- container -->
+    </div><!-- main -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
-
 </html>

@@ -1,112 +1,134 @@
-<!DOCTYPE html>
-<html lang="ja">
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>国区分一覧</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<head>
-  <meta charset="UTF-8">
-  <title>BRGD_国区分管理</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="BRGD ID  Manegement System">
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/common.css">
-  <link rel="shortcut icon" href="../img/favicon.ico" type="favicon.ico" />
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css">
-  <script type="text/javascript">
-  SyntaxHighlighter.all();
-  </script>
-</head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/style1.css">
 
-<body>
-  <!-- header -->
-  <header class="header">
-    <!-- Cathch -->
-    <div class="topTitle">
-      <div class="container">
+
+  </head>
+  <body>
+    <div class="header">
         <div class="row">
-          <div class="col-md-1"><img style="width: 70px;height: 70px;" src="../img/logo.png" class="img-circle"></div>
-          <div class="col-md-9">
-            <h2>BRGD  ID Manegement System</h2></div>
-          <div class="col-md-2">
-            <a href="../index.html"><h2><button type="button" class="btn btn-success btn-lg">Sign out</button></h2></a>
-          </div>
+            <img width="80" height="60" class="col col-4 col-sm-2 col-md-2 col-lg-2  offset-3 offset-sm-2 offset-md-2 offset-lg-2" src="../img/myimg/logo.png" alt="" >
+            <div class="col col-3 col-sm-2 col-md-2 col-lg-2 offset-2 offset-sm-2 offset-md-2 offset-lg-6 pt-2">
+                <img   src="../img/myimg/user-icon1.png" alt="" > <span class="text-white">山田様</span>
+            </div> 
         </div>
-        <!-- row -->
-      </div>
-      <!-- container -->
+      
     </div>
-    <!-- topCatch -->
-  </header>
-  <!-- header -->
-  <!-- main -->
-  <div class="main">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-3 iframe-menu">
-          <iframe id="iframe-menu" frameborder="0" scrolling="no" src="../brgd0010_leftmenu.html" allowTransparency="true" marginwidth="0" marginheight="0">
-          </iframe>
-        </div>
-        <div class="contents col-sm-9">
-          <h5>国区分管理</h5>
-          <table class="table table-striped table-hover table-bordered">
-            <thead>
-              <tr>
-                <th>国番号</th>
-                <th>国名</th>
-                <th>編集</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>中国</td>
-                <td>
-                  <a href="brgd0061_country.html" target="_top" onclick="OpenSmallWindow(this.href,null,770,365); return false;">
-                    <button type="button" class="btn btn-info">編集</button>
-                  </a>
-                  <button type="button" class="btn btn-danger">削除</button>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>日本</td>
-                <td>
-                  <a href="brgd0061_country.html" target="_top" onclick="OpenSmallWindow(this.href,null,770,365); return false;">
-                    <button type="button" class="btn btn-info">編集</button>
-                  </a>
-                  <button type="button" class="btn btn-danger">削除</button>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>両方</td>
-                <td>
-                  <a href="brgd0061_country.html" target="_top" onclick="OpenSmallWindow(this.href,null,770,365); return false;">
-                    <button type="button" class="btn btn-info">編集</button>
-                  </a>
-                  <button type="button" class="btn btn-danger">削除</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <!-- contents -->
-      </div>
-      <!-- row -->
+    
+    <input type="checkbox" id="openSidebarMenu" class="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+        <div class="spinner diagonal part-1"></div>
+        <div class="spinner horizontal"></div>
+        <div class="spinner diagonal part-2"></div>
+    </label>
+    <div id="sidebarMenu">
+        <ul class="sidebarMenuInner">
+            <li><img width="20" height="20"  src="../img/mysvg/home.svg">&nbsp;&nbsp;ホーム</li>
+            <li  class="menuBox">
+                <input type="checkbox" id="label1" class="showInner" />
+                <label for="label1"><img width="20" height="20"  src="../img/mysvg/star.svg">&nbsp;&nbsp;ユーザ情報管理</label>
+                <div class="InnerMenu">
+                    <ul>
+                        <li>ユーザ一覧</li>
+                        <li>ユーザ登録</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="menuBox">
+                <input type="checkbox" id="label2" class="showInner" />
+                <label for="label2"><img width="20" height="20"  src="../img/mysvg/map.svg">&nbsp;&nbsp;区分管理</label>
+                <div class="InnerMenu">
+                    <ul>
+                        <li>国区分管理</li>
+                        <li>ID区分管理</li>
+                        <li>権限区分管理</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="menuBox">
+                <input type="checkbox" id="label3" class="showInner" />
+                <label for="label3"><img width="20" height="20"  src="../img/mysvg/setting.svg">&nbsp;&nbsp;画像管理</label>
+                <div class="InnerMenu">
+                    <ul>
+                        <li>スライド管理</li>
+                        <li>LOGO管理</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="menuBox">
+                <input type="checkbox" id="label4" class="showInner" />
+                <label for="label4"><img width="20" height="20"  src="../img/mysvg/add.svg">&nbsp;&nbsp;画面管理</label>
+                <div class="InnerMenu">
+                    <ul>
+                        <li>ヘッター管理</li>
+                        <li>フッター管理</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="menuBox">
+                <input type="checkbox" id="label5" class="showInner" />
+                <label for="label5"><img width="20" height="20"  src="../img/mysvg/edit.svg">&nbsp;&nbsp;内容管理</label>
+                <div class="InnerMenu">
+                    <ul>
+                        <li>メニュー管理</li>
+                        <li>バージョン管理</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
     </div>
-    <!-- container -->
-  </div>
-  <!-- main -->
-  <!-- footer -->
-  <footer class="footer">
-    &copy; 2015 bootstrap3-guide.com
-  </footer>
-  <!-- footer -->
-  <script src="../js/jquery-1.11.2.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/jquery.scrollUp.min.js"></script>
-  <script src="../js/common.js"></script>
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <form class="form-horizontal col-sm-12">
+                    <div class="contents col-sm-12">
+                        <div class="contents-header">国区分一覧</div>
+                        <div class="contents-body">
+                          <table class="table table-striped table-hover table-bordered">
+                            <thead>
+                              <tr>
+                                <th>国番号</th>
+                                <th>国名</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>1</td>
+                                <td>中国</td>
+                              </tr>
+                              <tr>
+                                <td>2</td>
+                                <td>日本</td>
+                              </tr>
+                              <tr>
+                                <td>3</td>
+                                <td>両方</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="contents-footer"> 
+                            <button type="button" class="btn btn-primary">編集</button>
+                            <button type="button" class="btn btn-danger">削除</button>
+                        </div>
+                    </div><!-- contents -->
+                </form><!-- from -->
+            </div><!-- row -->
+        </div><!-- container -->
+    </div><!-- main -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
-
 </html>
