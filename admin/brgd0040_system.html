@@ -21,15 +21,8 @@
           xhr.overrideMimeType("text/html;charset=Shift_JIS");
         }});
       $("#header").load("header.html");
-      // $("#sidebarMenu").load("menu.html");
+      $("#sidebarMenu").load("menu.html");
     });
-    $.ajax({
-    dataType : 'html',
-    url: 'menu.html',
-    success: function(data) {
-        $('sidebarMenu').html( data );
-    }
-})
   </script>
 </head>
 
