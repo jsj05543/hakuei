@@ -2,19 +2,6 @@
 <html lang="Ja">
 
 <head>
-  <script>
-    $(function(){
-      // Shift-JISに変更する場合
-      $.ajaxSetup({
-        beforeSend: function(xhr){
-          xhr.overrideMimeType("text/html;charset=Shift_JIS");
-        }});
-      $("#header").load("header.html");
-      $("#sidebarMenuInner").load("menu.html");
-    });
-  </script>
-
-
   <title>システム情報</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -26,7 +13,17 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../css/style.css">
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-
+  <script>
+    $(function(){
+      // Shift-JISに変更する場合
+      $.ajaxSetup({
+        beforeSend: function(xhr){
+          xhr.overrideMimeType("text/html;charset=Shift_JIS");
+        }});
+      $("#header").load("header.html");
+      $("#sidebarMenuInner").load("menu.html");
+    });
+  </script>
 </head>
 
 <body>
