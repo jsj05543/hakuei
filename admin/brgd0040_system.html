@@ -24,7 +24,7 @@
       // $("#sidebarMenu").load("menu.html");
     });
     $.ajax({
-    type: 'GET',
+    dataType : 'html',
     url: 'menu.html',
     success: function(data) {
         $('sidebarMenu').html( data );
