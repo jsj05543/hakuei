@@ -75,8 +75,18 @@ input[type="checkbox"]:checked ~ #sidebarMenu {
     transition: transform 300ms ease-in-out;
 }
 input[type="checkbox"]:checked ~ .main {
-    transform: translateX(250px);
+    transform: scaleX(0.82);
+    transition: transform 300ms ease-in-out;
 }
+.main {
+    transition: transform 300ms ease-in-out; 
+    margin-top: 80px;
+    margin-left: 20px;
+    margin-right: 20px;
+    transform-origin: right center;
+    
+}
+
 .sidebarIconToggle {
     transition: all 0.3s;
     box-sizing: border-box;
@@ -164,14 +174,8 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 }
 /* menu end */
 
-/* mian start*/
-.main {
-    transition: transform 300ms ease-in-out; 
-    margin-top: 80px;
-    margin-left: 20px;
-    margin-right: 20px;
-    
-}
+/* main start*/
+
 
 /* contents */
 .contents {
@@ -206,7 +210,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 	padding: 10px 10px 10px 10px;
 	border: 1px solid #dfdfdf;
 }
-/* mian end*/
+/* main end*/
 
 /* scrollbar */
 ::-webkit-scrollbar {
