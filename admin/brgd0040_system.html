@@ -21,14 +21,16 @@
           xhr.overrideMimeType("text/html;charset=Shift_JIS");
         }});
       $("#header").load("header.html");
-      $("#sidebarMenu").load("menu.html");
+      $("#sidebarMenuInner").load("menu.html");
     });
   </script>
 </head>
 
 <body>
   <div id="header"></div>
-  <div id="sidebarMenu"></div>
+  <div id="sidebarMenu">
+    <ul id="sidebarMenuInner" class="sidebarMenuInner"></ul>
+  </div>
   <div class="main">
     <div class="container-fluid">
       <div class="row">
