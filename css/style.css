@@ -76,15 +76,14 @@ input[type="checkbox"]:checked ~ #sidebarMenu {
 }
 input[type="checkbox"]:checked ~ .main {
     transform: scaleX(0.82);
-    transition: transform 300ms ease-in-out;
+    /* transform:translateX(250px); */
 }
 .main {
     transition: transform 300ms ease-in-out; 
+    transform-origin:right center;
     margin-top: 80px;
     margin-left: 20px;
     margin-right: 20px;
-    transform-origin: right center;
-    
 }
 
 .sidebarIconToggle {

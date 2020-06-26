@@ -11,33 +11,29 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="../css/style.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <script src="js/common.js"></script>
   <script>
-    $(function(){
+    $(function () {
       // Shift-JISに変更する場合
       $.ajaxSetup({
-        beforeSend: function(xhr){
+        beforeSend: function (xhr) {
           xhr.overrideMimeType("text/html;charset=Shift_JIS");
-        }});
-      $("#header").load("header.html");
-      $("#sidebarMenuInner").load("menu.html");
+        }
+      });
     });
   </script>
 </head>
 
 <body>
+  <!-- ヘッダーimport -->
   <div id="header" class="header"></div>
-  <input type="checkbox" id="openSidebarMenu" class="openSidebarMenu">
-  <label for="openSidebarMenu" class="sidebarIconToggle">
-      <div class="spinner diagonal part-1"></div>
-      <div class="spinner horizontal"></div>
-      <div class="spinner diagonal part-2"></div>
-  </label>
-  <div id="sidebarMenu">
-    <ul id="sidebarMenuInner" class="sidebarMenuInner"></ul>
-  </div>
-  <div class="main">
+  <!-- メニューimport -->
+  <div id="sidebarMenu"></div>
+  <!-- main start -->
+  <div id="main" class="main">
     <div class="container-fluid">
       <div class="row">
         <form class="form-horizontal col-sm-12">
@@ -64,7 +60,7 @@
                     <div class="card-body">
                       <h5 class="card-title">白英様</h5>
                       <ul class="list-group list-group-flush">
-                       
+
                         <li class="list-group-item">前回:20200101 00:00:00</li>
                         <li class="list-group-item">前回退出:20200101 00:00:00</li>
                         <li class="list-group-item">今回:20200101 00:00:00</li>
@@ -95,8 +91,6 @@
                   </div>
                 </div>
               </div>
-              
-     
             </div><!-- contents-body -->
           </div><!-- contents -->
         </form><!-- from -->
