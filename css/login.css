@@ -105,3 +105,9 @@ body {
   max-width: 680px;
   padding: 0 15px;
 }
+.login-box{
+  border: 1px solid #4990c0; 
+  background-color:rgb(220, 243, 170); 
+  padding: 15px 15px 15px 15px;
+  margin: 15px 15px 15px 15px;
+}
