@@ -1,17 +1,43 @@
 /* iPhone8 以下 */
 @media screen and (min-width: 320px) and (max-width: 414px) {
     #sidebarMenu {
-        width: 250px;
+        width: 100%;
     }
 
  }
  @media screen and (min-width: 320px) and (max-width: 414px) {
     input[type="checkbox"]:checked ~ .main {
         /* transform: scaleX(0.7); */
-        transform:translateX(250px);
+        transform:translateY(500px);
     }
 
 }
+
+
+
+@media screen and (min-width: 320px) and (max-width: 414px) {
+/* menu start */
+#sidebarMenu {
+    height: 100%;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    transform: translateY(-100%);
+    transition: transform 300ms ease-in-out;
+    background-color: #4990c0;
+    overflow: auto;
+
+    /* background: linear-gradient(180deg, #46a4fcd2 0%, #3F5EFB 100%); */
+}
+}
+@media screen and (min-width: 320px) and (max-width: 414px) {
+input[type="checkbox"]:checked ~ #sidebarMenu {
+    transform: translateX(0);
+    transition: transform 300ms ease-in-out;
+}
+}
+
+
 
 /* iPhone8 以上 */
 @media screen and (min-width: 414px) and (max-width: 500px) {
@@ -54,5 +80,7 @@
         transform: scaleX(0.78);
         /* transform:translateX(250px); */
     }
-
 }
+
+
+
