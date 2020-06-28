@@ -11,5 +11,5 @@ $(function () {
   $("#sidebarMenu").load("sub/menu.html");
   $('<input type="checkbox" id="openSidebarMenu" class="openSidebarMenu">').insertAfter('#header');
   $('<label for="openSidebarMenu" class="sidebarIconToggle"><div class="spinner diagonal part-1"></div><div class="spinner horizontal"></div><div class="spinner diagonal part-2"></div></label>').insertBefore('#sidebarMenu');
-  
+  $("#main").load("brgd0020.html");
 });
