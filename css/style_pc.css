@@ -10,7 +10,6 @@
     transition: transform 400ms ease-in-out;
     background-color: #4990c0;
     overflow: auto;
-    z-index: 10;
 }
 input[type="checkbox"]:checked ~ #sidebarMenu {
     transform: translateX(0);
