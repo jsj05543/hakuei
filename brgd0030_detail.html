@@ -19,6 +19,25 @@
     crossorigin="anonymous"></script>
   <script src="js/common.js"></script>
   <script>
+    // 無効なフィールドがある場合にフォーム送信を無効にするスターターJavaScriptの実例
+    (function () {
+      'use strict';
+
+      window.addEventListener('load', function () {
+        // カスタムブートストラップ検証スタイルを適用するすべてのフォームを取得
+        var forms = document.getElementsByClassName('needs-validation');
+        // ループして帰順を防ぐ
+        var validation = Array.prototype.filter.call(forms, function (form) {
+          form.addEventListener('submit', function (event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
     $(function () {
       // Shift-JISに変更する場合
       $.ajaxSetup({
@@ -29,6 +48,7 @@
     });
   </script>
 </head>
+
 <body>
   <!-- ヘッダーimport -->
   <div id="header" class="header"></div>
@@ -37,79 +57,84 @@
   <!-- main start -->
   <div class="main">
     <div class="container-fluid">
-      <div class="row">
-        <form class="form-horizontal col-sm-12">
-          <div class="contents col-sm-12">
-            <div class="contents-header">アカウント登録</div>
-            <div class="contents-body">
-              <div class="form-row">
-                <!-- ネット名 -->
-                <div class="form-group col-md-4">
-                  <label for="InputName">ネット名</label>
-                  <input type="text" class="form-control" id="InputName" placeholder="ネット名">
-                </div>
-              </div>
-              <div class="form-row">
-                <!-- アカウント -->
-                <div class="form-group col-md-4">
-                  <label for="InputAccount">アカウント</label>
-                  <input type="text" class="form-control" id="InputAccount" placeholder="アカウント">
-                </div>
-                <!-- パスワード -->
-                <div class="form-group col-md-4">
-                  <label for="InputPassword">パスワード</label>
-                  <input type="text" class="form-control" id="InputPassword" placeholder="パスワード">
-                </div>
-              </div>
-              <div class="form-row">
-                <!-- 国区分 -->
-                <div class="form-group col-md-4">
-                  <label for="Inputradiocountry">国区分</label>
-                  <label class="radio-inline font-weight-normal"></label><input type="radio" name="China" value="1">
-                  中国</label>
-                  <label class="radio-inline font-weight-normal"><input type="radio" name="Japen" value="2"> 日本</label>
-                </div>
-                <!-- ID区分 -->
-                <div class="form-group col-md-4">
-                  <label for="Inputradioid">ID区分</label>
-                  <label class="radio-inline font-weight-normal"><input type="radio" name="hard" value="1"> ハード</label>
-                  <label class="radio-inline font-weight-normal"><input type="radio" name="soft" value="2"> ソフト</label>
-                </div>
-              </div>
-
-              <!-- 分割線 -->
-              <hr color="#4990c0">
-              <!-- 全確認質問1 -->
-              <div class="form-row">
-                <div class="form-group col-md-8">
-                  <label for="InputSecurity1">安全確認質問1</label>
-                  <textarea placeholder="安全確認質問1" rows="2" class="form-control" id="InputTextareaSecurity1"></textarea>
-                </div>
-              </div>
-              <!-- 全確認質問2 -->
-              <div class="form-row">
-                <div class="form-group col-md-8">
-                  <label for="InputSecurity2">安全確認質問2</label>
-                  <textarea placeholder="安全確認質問2" rows="2" class="form-control" id="InputTextareaSecurity2"></textarea>
-                </div>
-              </div>
-              <!-- 全確認質問3 -->
-              <div class="form-row ">
-                <div class="form-group col-md-8">
-                  <label for="InputSecurity3">安全確認質問3</label>
-                  <textarea placeholder="安全確認質問3" rows="2" class="form-control" id="InputTextareaSecurity3"></textarea>
+      <form class="needs-validation" novalidate>
+        <div class="contents">
+          <div class="contents-header">アカウント登録</div>
+          <div class="contents-body">
+            <div class="form-row">
+              <!-- ネット名 -->
+              <div class="form-group col-md-4">
+                <label for="InputName">ネット名</label>
+                <input type="text" class="form-control" id="InputName" placeholder="ネット名" required>
+                <div class="valid-feedback">
+                  入力済み!
                 </div>
               </div>
             </div>
-            <div class="contents-footer">
-              <button type="button" class="btn btn-secondary" onclick="window.close();return false;">戻る</button>
-              <button type="button" class="btn btn-info">登録</button>
-              <button type="button" class="btn btn-primary">更新</button>
+            <div class="form-row">
+              <!-- アカウント -->
+              <div class="form-group col-md-4">
+                <label for="InputAccount">アカウント</label>
+                <input type="text" class="form-control" id="InputAccount" placeholder="アカウント" required>
+                <div class="valid-feedback">
+                  入力済み!
+                </div>
+                <div class="invalid-feedback">
+                  アカウントを入力してください
+                </div>
+              </div>
+              <!-- パスワード -->
+              <div class="form-group col-md-4">
+                <label for="InputPassword">パスワード</label>
+                <input type="text" class="form-control" id="InputPassword" placeholder="パスワード">
+              </div>
             </div>
-          </div><!-- contents -->
-        </form><!-- from -->
-      </div><!-- row -->
-    </div><!-- container -->
+            <div class="form-row">
+              <!-- 国区分 -->
+              <div class="form-group col-md-4">
+                <label for="Inputradiocountry">国区分</label>
+                <label class="radio-inline font-weight-normal"><input type="radio" name="China" value="1">中国</label>
+                <label class="radio-inline font-weight-normal"><input type="radio" name="Japen" value="2">日本</label>
+              </div>
+              <!-- ID区分 -->
+              <div class="form-group col-md-4">
+                <label for="Inputradioid">ID区分</label>
+                <label class="radio-inline font-weight-normal"><input type="radio" name="hard" value="1"> ハード</label>
+                <label class="radio-inline font-weight-normal"><input type="radio" name="soft" value="2"> ソフト</label>
+              </div>
+            </div>
+            <!-- 分割線 -->
+            <hr color="#4990c0">
+            <!-- 全確認質問1 -->
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label for="InputSecurity1">安全確認質問1</label>
+                <textarea placeholder="安全確認質問1" rows="2" class="form-control" id="InputTextareaSecurity1"></textarea>
+              </div>
+            </div>
+            <!-- 全確認質問2 -->
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label for="InputSecurity2">安全確認質問2</label>
+                <textarea placeholder="安全確認質問2" rows="2" class="form-control" id="InputTextareaSecurity2"></textarea>
+              </div>
+            </div>
+            <!-- 全確認質問3 -->
+            <div class="form-row ">
+              <div class="form-group col-md-8">
+                <label for="InputSecurity3">安全確認質問3</label>
+                <textarea placeholder="安全確認質問3" rows="2" class="form-control" id="InputTextareaSecurity3"></textarea>
+              </div>
+            </div>
+          </div><!-- contents-body -->
+          <div class="contents-footer">
+            <button type="button" class="btn btn-secondary">戻る</button>
+            <button type="submit" class="btn btn-info">登録</button>
+            <button type="button" class="btn btn-primary">更新</button>
+          </div>
+        </div><!-- contents -->
+      </form>
+    </div><!-- container-fluid -->
   </div><!-- main -->
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

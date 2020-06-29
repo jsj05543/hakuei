@@ -29,6 +29,7 @@
         });
     </script>
 </head>
+
 <body>
     <!-- ヘッダーimport -->
     <div id="header" class="header"></div>
@@ -37,33 +38,30 @@
     <!-- main start -->
     <div class="main">
         <div class="container-fluid">
-            <div class="row">
-                <form class="form-horizontal col-sm-12">
-                    <div class="contents col-sm-12">
-                        <div class="contents-header">ID区分登録</div>
-                        <div class="contents-body">
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="InputIDNnumID">ID番号</label>
-                                    <input type="text" class="form-control" id="InputIDNnumID" placeholder="ID番号">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="InputIDNumName">ID名</label>
-                                    <input type="text" class="form-control" id="InputIDNumName" placeholder="ID名">
-                                </div>
+            <form>
+                <div class="contents">
+                    <div class="contents-header">ID区分登録</div>
+                    <div class="contents-body">
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="InputIDNnumID">ID番号</label>
+                                <input type="text" class="form-control" id="InputIDNnumID" placeholder="ID番号">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="InputIDNumName">ID名</label>
+                                <input type="text" class="form-control" id="InputIDNumName" placeholder="ID名">
                             </div>
                         </div>
-                        <div class="contents-footer">
-                            <button type="button" class="btn btn-secondary"
-                                onclick="window.close();return false;">戻る</button>
-                            <button type="button" class="btn btn-info">登録</button>
-                            <button type="button" class="btn btn-primary">更新</button>
-
-                        </div>
-                    </div><!-- contents -->
-                </form><!-- from -->
-            </div><!-- row -->
-        </div><!-- container -->
+                    </div>
+                    <div class="contents-footer">
+                        <button type="button" class="btn btn-secondary"
+                            onclick="window.close();return false;">戻る</button>
+                        <button type="button" class="btn btn-info">登録</button>
+                        <button type="button" class="btn btn-primary">更新</button>
+                    </div>
+                </div><!-- contents -->
+            </form><!-- from -->
+        </div><!-- container-fluid -->
     </div><!-- main -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

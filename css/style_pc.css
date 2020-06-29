@@ -23,4 +23,5 @@ input[type="checkbox"]:checked ~ .main {
     transition: transform 400ms ease-in-out; 
     transform-origin:right center;
     margin-top: 80px;
+    
 }
