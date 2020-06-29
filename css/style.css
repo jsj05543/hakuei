@@ -225,3 +225,9 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 label{
     font-weight: bold;;
 }
+
+.color1{
+    height: 60px; 
+    width: 100%; 
+    border: 1px solid #dfdfdf;
+}
