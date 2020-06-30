@@ -19,7 +19,8 @@ body {
     width: 100%;
     max-width: 100%;
     box-shadow: none;
-    background-color: #4990c0;
+    /* background-color: #4990c0;*/
+    background-color: rgb(73, 144, 192); 
     position: fixed;
     height: 60px!important;
     overflow: hidden;
@@ -180,8 +181,17 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 	font-size: 18px;
 	font-weight: bold;
 	padding: 5px 0px 5px 10px;
-	border-left: 7px solid #4990c0;
+	border-left: 7px solid rgb(73, 144, 192);
 	border-bottom: 1px solid #dfdfdf;
+}
+.contents-header-theme1{
+    border-left: 7px solid rgb(73, 144, 192);
+}
+.contents-header-theme2{
+    border-left: 7px solid rgb(192, 73, 73);
+}
+.contents-header-theme3{
+    border-left: 7px solid rgb(101, 192, 73);
 }
 .contents-subheader {
 	font-size: 12px;
@@ -223,11 +233,12 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 .sidebarMenuInner a:hover{ color: #eceff38a; }
 
 label{
-    font-weight: bold;;
+    font-weight: bold;
 }
 
-.color1{
+.themecolor{
     height: 60px; 
     width: 100%; 
     border: 1px solid #dfdfdf;
+    background-color: rgb(73, 144, 192);
 }

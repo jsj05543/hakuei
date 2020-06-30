@@ -19,11 +19,51 @@
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="js/common.js"></script>
     <script>
+        var i=0;
+        var j=0;
+        function  setColor(){
+            setTheme(i);
+            setLogoImage(j);
+        }
         $(function () {
             // Shift-JISに変更する場合
             $.ajaxSetup({
                 beforeSend: function (xhr) {
                     xhr.overrideMimeType("text/html;charset=Shift_JIS");
+                }
+            });
+            //onイベント
+            var color = "rgb(73, 144, 192)";
+            $( 'input[name="exampleRadios"]:radio' ).change( function() {
+                var radioval = $(this).val();
+                if(radioval == "1"){
+                    var color = "rgb(73, 144, 192)";
+                    i=1;
+
+                }
+                if(radioval == "2"){
+                    var color = "rgb(192, 73, 73)";
+                    i=2;
+                }
+                if(radioval == "3"){
+                    var color = "rgb(101, 192, 73)";
+                    i=3;
+                }
+                $('#themecolor').css("background-color", color);
+            });
+
+            $( 'input[name="inlineRadioOptions"]:radio' ).click( function() {
+                var radioval = $(this).val();
+                
+                if(radioval == "1"){
+                    j=1;
+                    console.log(j);
+                }
+                if(radioval == "2"){
+                    j=2;
+                }
+                if(radioval == "3"){
+                    j=3;
                 }
             });
         });
@@ -38,11 +78,11 @@
     <!-- main start -->
     <div class="main">
         <div class="container-fluid">
-            <form>
+            <form method="POST">
                 <div class="contents">
-                    <div class="contents-header">テーマ管理</div>
+                    <div name="contents-header" class="contents-header">テーマ管理</div>
                     <div class="contents-body">
-                        <div id="color1" class="color1" style="background-color: rgb(81, 73, 192);"></div>
+                        <div id="themecolor" class="themecolor"></div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="1" checked>
                             <label class="form-check-label" for="exampleRadios1">
@@ -62,11 +102,23 @@
                             </label>
                           </div>
                     </div>
+                    <div name="contents-header" class="contents-header mt-3">Logo管理</div>
+                    <div class="contents-body">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked>
+                            <label class="form-check-label">logo3<img class="bg-info" width="100" height="100" src="img/logo.png"></label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+                            <label class="form-check-label">logo3<img width="100" height="100" src="img/logo1.jpg"></label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">
+                            <label class="form-check-label">logo3</label><img width="100" height="100" src="img/logo2.jpg"></label>
+                          </div>
+                    </div>
                     <div class="contents-footer">
-                        <button type="button" class="btn btn-secondary"
-                            onclick="window.close();return false;">戻る</button>
-                        <button type="button" class="btn btn-info">登録</button>
-                        <button type="button" class="btn btn-primary">更新</button>
+                        <button type="button" class="btn btn-info" onclick="setColor();">設定</button>
                     </div>
                 </div><!-- contents -->
             </form><!-- from -->
