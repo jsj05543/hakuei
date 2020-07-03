@@ -20,7 +20,7 @@ body {
     max-width: 100%;
     box-shadow: none;
     /* background-color: #4990c0;*/
-    background-color: rgb(73, 144, 192); 
+    background-color: rgb(73, 144, 192);
     position: fixed;
     height: 60px!important;
     overflow: hidden;
@@ -192,6 +192,12 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 }
 .contents-header-theme3{
     border-left: 7px solid rgb(101, 192, 73);
+}
+.contents-header-theme4{
+    border-left: 7px solid rgb(192, 73, 119);
+}
+.contents-header-theme5{
+    border-left: 7px solid rgb(217, 9, 245);
 }
 .contents-subheader {
 	font-size: 12px;

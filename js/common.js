@@ -22,6 +22,8 @@ function setColor() {
   var color1 = "rgb(73, 144, 192);";
   var color2 = "rgb(192, 73, 73)";
   var color3 = "rgb(101, 192, 73)";
+  var color4 = "rgb(192, 73, 119)";
+  var color5 = "rgb(217, 9, 245)";
   var arr = getCookieArray();
   var colorId = arr['colorId'];
   if (colorId == 1) {
@@ -32,6 +34,8 @@ function setColor() {
     $(".contents-header").addClass("contents-header-theme1");
     $(".contents-header").removeClass("contents-header-theme2");
     $(".contents-header").removeClass("contents-header-theme3");
+    $(".contents-header").removeClass("contents-header-theme4");
+    $(".contents-header").removeClass("contents-header-theme5");
     console.log(i);
   }
   if (colorId == 2) {
@@ -40,6 +44,8 @@ function setColor() {
     $(".contents-header").addClass("contents-header-theme2");
     $(".contents-header").removeClass("contents-header-theme1");
     $(".contents-header").removeClass("contents-header-theme3");
+    $(".contents-header").removeClass("contents-header-theme4");
+    $(".contents-header").removeClass("contents-header-theme5");
   }
   if (colorId == 3) {
     $("#header").css("background-color", color3);
@@ -47,6 +53,26 @@ function setColor() {
     $(".contents-header").addClass("contents-header-theme3");
     $(".contents-header").removeClass("contents-header-theme1");
     $(".contents-header").removeClass("contents-header-theme2");
+    $(".contents-header").removeClass("contents-header-theme4");
+    $(".contents-header").removeClass("contents-header-theme5");
+  }
+  if (colorId == 4) {
+    $("#header").css("background-color", color4);
+    $("#sidebarMenu").css("background-color", color4);
+    $(".contents-header").addClass("contents-header-theme4");
+    $(".contents-header").removeClass("contents-header-theme1");
+    $(".contents-header").removeClass("contents-header-theme2");
+    $(".contents-header").removeClass("contents-header-theme3");
+    $(".contents-header").removeClass("contents-header-theme5");
+  }
+  if (colorId == 5) {
+    $("#header").css("background-color", color5);
+    $("#sidebarMenu").css("background-color", color5);
+    $(".contents-header").addClass("contents-header-theme5");
+    $(".contents-header").removeClass("contents-header-theme1");
+    $(".contents-header").removeClass("contents-header-theme2");
+    $(".contents-header").removeClass("contents-header-theme3");
+    $(".contents-header").removeClass("contents-header-theme4");
   }
 }
 //logo設計関数
@@ -55,15 +81,12 @@ function setLogo() {
   var logoId = arr['logoId'];
   if (logoId == 1) {
     $("#logoIamge").attr('src','img/logo.png');
-    console.log("||||||||||A|||||"+logoId);
   }
   if (logoId == 2) {
-    $("#logoIamge").attr('src','img/logo1.jpg');
-    console.log("||||||||B|||||||"+logoId);
+    $("#logoIamge").attr('src','img/logo1.png');
   }
   if (logoId == 3) {
-    $("#logoIamge").attr('src','img/logo2.jpg');
-    console.log("||||||||C|||||||"+logoId);
+    $("#logoIamge").attr('src','img/logo2.png');
   }
 }
 // 連想配列に格納
