@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>ヘッダ管理</title>
+    <title>テーマ管理</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,12 +19,6 @@
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="js/common.js"></script>
     <script>
-        var i=0;
-        var j=0;
-        function  setColor(){
-            setTheme(i);
-            setLogoImage(j);
-        }
         $(function () {
             // Shift-JISに変更する場合
             $.ajaxSetup({
@@ -32,41 +26,78 @@
                     xhr.overrideMimeType("text/html;charset=Shift_JIS");
                 }
             });
-            //onイベント
-            var color = "rgb(73, 144, 192)";
-            $( 'input[name="exampleRadios"]:radio' ).change( function() {
-                var radioval = $(this).val();
-                if(radioval == "1"){
-                    var color = "rgb(73, 144, 192)";
-                    i=1;
 
+            //画面初期表示の時「デザイン」
+            var arr = getCookieArray();
+            var colorId = arr['colorId'];
+            if (colorId == 1) {
+                $("#exampleRadios" + [1]).prop('checked', true);
+                var color = "rgb(73, 144, 192)";
+            }
+            if (colorId == 2) {
+                $("#exampleRadios" + [2]).prop('checked', true);
+                var color = "rgb(192, 73, 73)";
+            }
+            if (colorId == 3) {
+                $("#exampleRadios" + [3]).prop('checked', true);
+                var color = "rgb(101, 192, 73)";
+            }
+            $('#themecolor').css("background-color", color);
+
+            //選択する時「デザイン」
+            var color = "rgb(73, 144, 192)";
+            $('input[name="exampleRadios"]:radio').change(function () {
+                var i = 0;
+                var radioval = $(this).val();
+                if (radioval == "1") {
+                    var color = "rgb(73, 144, 192)";
+                    i = 1;
                 }
-                if(radioval == "2"){
+                if (radioval == "2") {
                     var color = "rgb(192, 73, 73)";
-                    i=2;
+                    i = 2;
                 }
-                if(radioval == "3"){
+                if (radioval == "3") {
                     var color = "rgb(101, 192, 73)";
-                    i=3;
+                    i = 3;
                 }
                 $('#themecolor').css("background-color", color);
+                document.cookie = "colorId=" + i;
             });
+            //画面初期表示の時「logo」
+            var arr = getCookieArray();
+            var logoId = arr['logoId'];
+            if (logoId == 1) {
+                $("#inlineRadio" + [1]).prop('checked', true);
+            }
+            if (logoId == 2) {
+                $("#inlineRadio" + [2]).prop('checked', true);
+            }
+            if (logoId == 3) {
+                $("#inlineRadio" + [3]).prop('checked', true);
+            }
 
-            $( 'input[name="inlineRadioOptions"]:radio' ).click( function() {
+            //選択する時「logo」
+            $('input[name="inlineRadioOptions"]:radio').change(function () {
+                var i = 1;
                 var radioval = $(this).val();
-                
-                if(radioval == "1"){
-                    j=1;
-                    console.log(j);
+                if (radioval == "1") {
+                    i = 1;
                 }
-                if(radioval == "2"){
-                    j=2;
+                if (radioval == "2") {
+                    i = 2;
                 }
-                if(radioval == "3"){
-                    j=3;
+                if (radioval == "3") {
+                    i = 3;
                 }
+                document.cookie = "logoId=" + i;
             });
         });
+
+        function setTheme(){
+            setColor();
+            setLogo();
+        }
     </script>
 </head>
 
@@ -78,47 +109,56 @@
     <!-- main start -->
     <div class="main">
         <div class="container-fluid">
-            <form method="POST">
+            <form name="form" method="POST">
                 <div class="contents">
                     <div name="contents-header" class="contents-header">テーマ管理</div>
                     <div class="contents-body">
                         <div id="themecolor" class="themecolor"></div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="1" checked>
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                                value="1" checked>
                             <label class="form-check-label" for="exampleRadios1">
-                              テーマ1:青
+                                テーマ1:青
                             </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="2">
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                                value="2">
                             <label class="form-check-label" for="exampleRadios2">
                                 テーマ2:赤
                             </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="3">
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3"
+                                value="3">
                             <label class="form-check-label" for="exampleRadios3">
                                 テーマ3:緑
                             </label>
-                          </div>
+                        </div>
                     </div>
                     <div name="contents-header" class="contents-header mt-3">Logo管理</div>
                     <div class="contents-body">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked>
-                            <label class="form-check-label">logo3<img class="bg-info" width="100" height="100" src="img/logo.png"></label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
-                            <label class="form-check-label">logo3<img width="100" height="100" src="img/logo1.jpg"></label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">
-                            <label class="form-check-label">logo3</label><img width="100" height="100" src="img/logo2.jpg"></label>
-                          </div>
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                value="1" checked>
+                            <label class="form-check-label" for="inlineRadio1">logo1<img class="bg-info" width="100" height="100"
+                                    src="img/logo.png"></label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                value="2">
+                            <label class="form-check-label" for="inlineRadio2">logo2<img width="100" height="100"
+                                    src="img/logo1.jpg"></label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                                value="3">
+                            <label class="form-check-label" for="inlineRadio3">logo3</label><img width="100" height="100"
+                                src="img/logo2.jpg"></label>
+                        </div>
                     </div>
                     <div class="contents-footer">
-                        <button type="button" class="btn btn-info" onclick="setColor();">設定</button>
+                        <button type="button" class="btn btn-info" onclick="setTheme();">設定</button>
                     </div>
                 </div><!-- contents -->
             </form><!-- from -->

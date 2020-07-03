@@ -7,56 +7,74 @@ $(function () {
       }
     });
   });
+
+  // ヘッダー読み取り
   $("#header").load("sub/header.html");
+  //メニュー読み取り
   $("#sidebarMenu").load("sub/menu.html");
   $('<input type="checkbox" id="openSidebarMenu" class="openSidebarMenu">').insertAfter('#header');
   $('<label for="openSidebarMenu" class="sidebarIconToggle"><div class="spinner diagonal part-1"></div><div class="spinner horizontal"></div><div class="spinner diagonal part-2"></div></label>').insertBefore('#sidebarMenu');
+  //テーマ設定
+  setColor();
 });
-
 //デザイン設計関数
-function  setTheme(i){
+function setColor() {
   var color1 = "rgb(73, 144, 192);";
   var color2 = "rgb(192, 73, 73)";
   var color3 = "rgb(101, 192, 73)";
-  if(i == 1){
-      $("#header").css("background-color", "");
-      $("#sidebarMenu").css("background-color", "");
-      $("#header").css("background-color", color1);
-      $("#sidebarMenu").css("background-color", color1);
-      $(".contents-header").addClass("contents-header-theme1");
-      $(".contents-header").removeClass("contents-header-theme2");
-      $(".contents-header").removeClass("contents-header-theme3");
-      console.log(i);
+  var arr = getCookieArray();
+  var colorId = arr['colorId'];
+  if (colorId == 1) {
+    $("#header").css("background-color", "");
+    $("#sidebarMenu").css("background-color", "");
+    $("#header").css("background-color", color1);
+    $("#sidebarMenu").css("background-color", color1);
+    $(".contents-header").addClass("contents-header-theme1");
+    $(".contents-header").removeClass("contents-header-theme2");
+    $(".contents-header").removeClass("contents-header-theme3");
+    console.log(i);
   }
-  if(i == 2){
-      $("#header").css("background-color", color2);
-      $("#sidebarMenu").css("background-color", color2);
-      $(".contents-header").addClass("contents-header-theme2");
-      $(".contents-header").removeClass("contents-header-theme1");
-      $(".contents-header").removeClass("contents-header-theme3");
+  if (colorId == 2) {
+    $("#header").css("background-color", color2);
+    $("#sidebarMenu").css("background-color", color2);
+    $(".contents-header").addClass("contents-header-theme2");
+    $(".contents-header").removeClass("contents-header-theme1");
+    $(".contents-header").removeClass("contents-header-theme3");
   }
-  if(i == 3){
-      $("#header").css("background-color", color3);
-      $("#sidebarMenu").css("background-color", color3);
-      $(".contents-header").addClass("contents-header-theme3");
-      $(".contents-header").removeClass("contents-header-theme1");
-      $(".contents-header").removeClass("contents-header-theme2");
+  if (colorId == 3) {
+    $("#header").css("background-color", color3);
+    $("#sidebarMenu").css("background-color", color3);
+    $(".contents-header").addClass("contents-header-theme3");
+    $(".contents-header").removeClass("contents-header-theme1");
+    $(".contents-header").removeClass("contents-header-theme2");
   }
 }
-//デザイン設計関数
-function  setLogoImage(j){
-  if(j == 1){
-      $("#logoIamge").src = "img/logo.jpg";
-      
-      console.log(j+"====");
+//logo設計関数
+function setLogo() {
+  var arr = getCookieArray();
+  var logoId = arr['logoId'];
+  if (logoId == 1) {
+    $("#logoIamge").attr('src','img/logo.png');
+    console.log("||||||||||A|||||"+logoId);
   }
-  if(j == 2){
-    $("#logoIamge").src = "img/logo2.jpg";
-    $("#header").load("sub/header.html","#logoIamge").src = "img/logo.jpg";
-    console.log(j+"====");
+  if (logoId == 2) {
+    $("#logoIamge").attr('src','img/logo1.jpg');
+    console.log("||||||||B|||||||"+logoId);
   }
-  if(j == 3){
-    $("#logoIamge").src = "img/logo3.jpg";
-    console.log(j+"====");
+  if (logoId == 3) {
+    $("#logoIamge").attr('src','img/logo2.jpg');
+    console.log("||||||||C|||||||"+logoId);
   }
+}
+// 連想配列に格納
+function getCookieArray() {
+  var arr = new Array();
+  if (document.cookie != '') {
+    var tmp = document.cookie.split('; ');
+    for (var i = 0; i < tmp.length; i++) {
+      var data = tmp[i].split('=');
+      arr[data[0]] = decodeURIComponent(data[1]);
+    }
+  }
+  return arr;
 }

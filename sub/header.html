@@ -1,8 +1,23 @@
-    <div class="row">
-      <img id="logoIamge" width="80" height="60"
-        class="col col-4 col-sm-2 col-md-2 col-lg-2  offset-3 offset-sm-2 offset-md-2 offset-lg-2"
-        src="img/logo.png" alt="">
-      <div class="col col-4 col-sm-2 col-md-2 col-lg-2 offset-1 offset-sm-2 offset-md-2 offset-lg-6 pt-2">
-        <img src="img/myimg/user-icon1.png" alt=""> <span class="text-white">山田様</span>
-      </div>
-    </div>
+<script>
+  $(function () {
+    var arr = getCookieArray();
+    var logoId = arr['logoId'];
+    if (logoId == 1) {
+      $("#logoIamge").attr('src', 'img/logo.png');
+    }
+    if (logoId == 2) {
+      $("#logoIamge").attr('src', 'img/logo1.jpg');
+    }
+    if (logoId == 3) {
+      $("#logoIamge").attr('src', 'img/logo2.jpg');
+    }
+  });
+</script>
+<div class="row">
+  <img id="logoIamge" width="80" height="60"
+    class="col col-4 col-sm-2 col-md-2 col-lg-2  offset-3 offset-sm-2 offset-md-2 offset-lg-2" src="img/logo.png"
+    alt="">
+  <div class="col col-4 col-sm-2 col-md-2 col-lg-2 offset-1 offset-sm-2 offset-md-2 offset-lg-6 pt-2">
+    <img src="img/myimg/user-icon1.png" alt=""> <span class="text-white">山田様</span>
+  </div>
+</div>
