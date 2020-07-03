@@ -64,17 +64,20 @@
             <div class="form-row">
               <!-- ネット名 -->
               <div class="form-group col-md-4">
-                <label for="InputName">ネット名</label>
+                <label for="InputName">ネット名<span class="badge badge-danger">必須</span></label>
                 <input type="text" class="form-control" id="InputName" placeholder="ネット名" required>
                 <div class="valid-feedback">
                   入力済み!
+                </div>
+                <div class="invalid-feedback">
+                  ネット名を入力してください
                 </div>
               </div>
             </div>
             <div class="form-row">
               <!-- アカウント -->
               <div class="form-group col-md-4">
-                <label for="InputAccount">アカウント</label>
+                <label for="InputAccount">アカウント<span class="badge badge-danger">必須</span></label>
                 <input type="text" class="form-control" id="InputAccount" placeholder="アカウント" required>
                 <div class="valid-feedback">
                   入力済み!
@@ -85,8 +88,14 @@
               </div>
               <!-- パスワード -->
               <div class="form-group col-md-4">
-                <label for="InputPassword">パスワード</label>
-                <input type="text" class="form-control" id="InputPassword" placeholder="パスワード">
+                <label for="InputPassword">パスワード<span class="badge badge-danger">必須</span></label>
+                <input type="text" class="form-control" id="InputPassword" placeholder="パスワード" required>
+              </div>
+              <div class="valid-feedback">
+                入力済み!
+              </div>
+              <div class="invalid-feedback">
+                ネット名を入力してください
               </div>
             </div>
             <div class="form-row">
