@@ -1,114 +1,111 @@
 <!doctype html>
-<html lang="Ja">
+<html lang="en">
 
 <head>
-  <title>システム情報</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>システム情報</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/style_mobile.css" type="text/css" media="screen and (max-width: 899px)">
-  <link rel="stylesheet" href="css/style_pc.css" type="text/css" media="screen and (min-width: 900px)">
-  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-    crossorigin="anonymous"></script>
-  <script src="js/common.js"></script>
-  <script>
-    $(function () {
-      // Shift-JISに変更する場合
-      $.ajaxSetup({
-        beforeSend: function (xhr) {
-          xhr.overrideMimeType("text/html;charset=Shift_JIS");
-        }
-      });
-       // Logo設定
-        setLogo();
-    });
-  </script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_mobile.css" type="text/css" media="screen and (max-width: 899px)">
+    <link rel="stylesheet" href="css/style_pc.css" type="text/css" media="screen and (min-width: 900px)">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="js/common.js"></script>
+    <script>
+        $(function () {
+            // Shift-JISに変更する場合
+            $.ajaxSetup({
+                beforeSend: function (xhr) {
+                    xhr.overrideMimeType("text/html;charset=Shift_JIS");
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
-  <!-- ヘッダーimport -->
-  <div id="header" class="header"></div>
-  <!-- メニューimport -->
-  <div id="sidebarMenu"></div>
-  <!-- main start -->
-  <div id="main" class="main">
-    <div class="container-fluid">
-      <form>
-        <div class="contents">
-          <div　name="contents-header" class="contents-header">システム情報</div>
-          <div class="contents-body">
-            <div class="row col-md-12">
-              <div class="col mb-4">
-                <div class="card border-primary">
-                  <div class="card-header bg-primary">システム情報</div>
-                  <div class="card-body">
-                    <h5 class="card-title">BURGUD</h5>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">バージョン：v1</li>
-                      <li class="list-group-item">OS:Mac</li>
-                      <li class="list-group-item">ブラウザ:chrome</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card border-success">
-                  <div class="card-header bg-success">ログイン情報</div>
-                  <div class="card-body">
-                    <h5 class="card-title">白英様</h5>
-                    <ul class="list-group list-group-flush">
-
-                      <li class="list-group-item">前回:20200101 00:00:00</li>
-                      <li class="list-group-item">前回退出:20200101 00:00:00</li>
-                      <li class="list-group-item">今回:20200101 00:00:00</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card border-info">
-                  <div class="card-header bg-info">アクセス情報</div>
-                  <div class="card-body">
-                    <h5 class="card-title">セキュリティ</h5>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">訪問件数:123</li>
-                      <li class="list-group-item">現在IP:</li>
-                      <li class="list-group-item">不正アクセスなし</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card border-danger">
-                  <div class="card-header bg-danger">メンテナンス</div>
-                  <div class="card-body">
-                    <h5 class="card-title">通知</h5>
-                    <p class="card-text">現在メンテナンス予定がありません</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!-- contents-body -->
-        </div><!-- contents -->
-      </form><!-- from -->
-    </div><!-- container-fluid -->
-  </div><!-- main -->
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+    <!-- ヘッダーimport -->
+    <div id="header" class="header"></div>
+    <!-- メニューimport -->
+    <div id="sidebarMenu"></div>
+    <!-- main start -->
+    <div class="main">
+        <div class="container-fluid">
+            <form>
+                <div class="contents">
+                    <div class="contents-header">システム情報</div>
+                    <div class="contents-body">
+                      <div class="row col-md-12">
+                        <div class="col mb-4">
+                          <div class="card border-primary">
+                            <div class="card-header bg-primary">システム情報</div>
+                            <div class="card-body">
+                              <h5 class="card-title">BURGUD</h5>
+                              <ul class="list-group list-group-flush">
+                                <li class="list-group-item">バージョン：v1</li>
+                                <li class="list-group-item">OS:Mac</li>
+                                <li class="list-group-item">ブラウザ:chrome</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col mb-4">
+                          <div class="card border-success">
+                            <div class="card-header bg-success">ログイン情報</div>
+                            <div class="card-body">
+                              <h5 class="card-title">白英様</h5>
+                              <ul class="list-group list-group-flush">
+          
+                                <li class="list-group-item">前回:20200101 00:00:00</li>
+                                <li class="list-group-item">前回退出:20200101 00:00:00</li>
+                                <li class="list-group-item">今回:20200101 00:00:00</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col mb-4">
+                          <div class="card border-info">
+                            <div class="card-header bg-info">アクセス情報</div>
+                            <div class="card-body">
+                              <h5 class="card-title">セキュリティ</h5>
+                              <ul class="list-group list-group-flush">
+                                <li class="list-group-item">訪問件数:123</li>
+                                <li class="list-group-item">現在IP:</li>
+                                <li class="list-group-item">不正アクセスなし</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col mb-4">
+                          <div class="card border-danger">
+                            <div class="card-header bg-danger">メンテナンス</div>
+                            <div class="card-body">
+                              <h5 class="card-title">通知</h5>
+                              <p class="card-text">現在メンテナンス予定がありません</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><!-- contents-body -->
+                </div><!-- contents -->
+            </form><!-- from -->
+        </div><!-- container-fluid -->
+    </div><!-- main -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
