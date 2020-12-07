@@ -80,13 +80,13 @@ function setLogo() {
   var arr = getCookieArray();
   var logoId = arr['logoId'];
   if (logoId == 1) {
-    $("#logoIamge").attr('src','img/logo.png');
-  }
-  if (logoId == 2) {
     $("#logoIamge").attr('src','img/logo1.png');
   }
-  if (logoId == 3) {
+  if (logoId == 2) {
     $("#logoIamge").attr('src','img/logo2.png');
+  }
+  if (logoId == 3) {
+    $("#logoIamge").attr('src','img/logo3.png');
   }
 }
 // 連想配列に格納

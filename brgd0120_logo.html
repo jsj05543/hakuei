@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>ID区分登録</title>
+    <title>Logo管理</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,7 +27,26 @@
                     xhr.overrideMimeType("text/html;charset=Shift_JIS");
                 }
             });
+
+            //画面初期表示の時「logo」
+            var arr = getCookieArray();
+            var logoId = arr['logoId'];
+            if (logoId == 1) {
+                $("#logo" + [1]).prop('checked', true);
+            }
+            if (logoId == 2) {
+                $("#logo" + [2]).prop('checked', true);
+            }
+            if (logoId == 3) {
+                $("#logo" + [3]).prop('checked', true);
+            }
         });
+
+        function setTheme(){
+            var logoId = $("input[name='logo']:checked").val();
+            document.cookie = "logoId=" + logoId;
+            setLogo();
+        }
     </script>
 </head>
 
@@ -39,26 +58,25 @@
     <!-- main start -->
     <div class="main">
         <div class="container-fluid">
-            <form>
+            <form name="form" method="POST">
                 <div class="contents">
-                    <div class="contents-header">ID区分登録</div>
+                    <div name="contents-header" class="contents-header mt-3">Logo管理</div>
                     <div class="contents-body">
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label for="InputIDNnumID">ID番号</label>
-                                <input type="text" class="form-control" id="InputIDNnumID" placeholder="ID番号">
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="InputIDNumName">ID名</label>
-                                <input type="text" class="form-control" id="InputIDNumName" placeholder="ID名">
-                            </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="logo" id="logo1" value="1" checked>
+                            <label class="form-check-label" for="logo1">logo1<img class="bg-info" width="200" height="70"  src="img/logo.png"></label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="logo" id="logo2" value="2">
+                            <label class="form-check-label" for="logo2">logo2<img class="bg-info" width="200" height="70"  src="img/logo1.png"></label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="logo" id="logo3"  value="3">
+                            <label class="form-check-label" for="logo3">logo3<img class="bg-info" width="200" height="70" src="img/logo2.png"></label>
                         </div>
                     </div>
                     <div class="contents-footer">
-                        <button type="button" class="btn btn-secondary"
-                            onclick="window.close();return false;">戻る</button>
-                        <button type="button" class="btn btn-info">登録</button>
-                        <button type="button" class="btn btn-primary">更新</button>
+                        <button type="button" class="btn btn-info" onclick="setTheme();">設定</button>
                     </div>
                 </div><!-- contents -->
             </form><!-- from -->
