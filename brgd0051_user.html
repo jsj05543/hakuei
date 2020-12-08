@@ -1,90 +1,164 @@
 <!doctype html>
-<html lang="en">
+<html5 lang="en">
 
-<head>
-    <title>ユーザ登録</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <head>
+        <title>ユーザ登録</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="shortcut icon" href="img/favicon.ico" type="favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" href="css/style_mobile.css" type="text/css" media="screen and (max-width: 899px)">
-    <link rel="stylesheet" href="css/style_pc.css" type="text/css" media="screen and (min-width: 900px)">
-    <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <script src="js/common.js"></script>
-    <script>
-        $(function () {
-            // Shift-JISに変更する場合
-            $.ajaxSetup({
-                beforeSend: function (xhr) {
-                    xhr.overrideMimeType("text/html;charset=Shift_JIS");
-                }
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="shortcut icon" href="img/favicon.ico" type="favicon.ico" />
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style_mobile.css" type="text/css" media="screen and (max-width: 899px)">
+        <link rel="stylesheet" href="css/style_pc.css" type="text/css" media="screen and (min-width: 900px)">
+        <script src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script src="js/common.js"></script>
+        <script>
+            $(function () {
+                // Shift-JISに変更する場合
+                $.ajaxSetup({
+                    beforeSend: function (xhr) {
+                        xhr.overrideMimeType("text/html;charset=Shift_JIS");
+                    }
+                });
             });
-        });
-    </script>
-</head>
-<body>
-    <!-- ヘッダーimport -->
-    <div id="header" class="header"></div>
-    <!-- メニューimport -->
-    <div id="sidebarMenu"></div>
-    <!-- main start -->
-    <div class="main">
-        <div class="container-fluid">
+        </script>
+    </head>
+
+    <body>
+        <!-- ヘッダーimport -->
+        <div id="header" class="header"></div>
+        <!-- メニューimport -->
+        <div id="sidebarMenu"></div>
+        <!-- main start -->
+        <div class="main">
+            <div class="container-fluid">
                 <form>
                     <div class="contents">
-                        <div name="contents-header"　class="contents-header">ユーザ登録</div>
+                        <div class="contents-header">ユーザ登録</div>
                         <div class="contents-body">
-
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="InputUserName">ユーザ名</label>
-                                    <input type="text" class="form-control" id="InputUserName" placeholder="ユーザ名">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="InputUserLoginDatetime">ログイン日時</label>
-                                    <input type="text" class="form-control" id="InputUserLoginDatetime"
-                                        placeholder="2017/10/10" readonly="readonly">
+                            <div class="form-group row  col-sm-12">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">ユーザアカウント</label>
+                                <div class="col-sm-5">
+                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
                                 </div>
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="InputPassword">パスワード</label>
-                                    <input type="text" class="form-control" id="InputPassword" placeholder="パスワード">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="InputLogooutDatetime">ログアウト日時</label>
-                                    <input type="text" class="form-control" id="InputLogooutDatetime"
-                                        placeholder="2017/10/10" readonly="readonly">
+
+                            <div class="form-group row  col-sm-12">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">氏名</label>
+                                <div class="col-sm-5">
+                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
                                 </div>
                             </div>
-                        </div><!-- contents-body -->
-                        <div class="contents-footer">
-                            <button type="button" class="btn btn-secondary"
-                                onclick="window.close();return false;">戻る</button>
-                            <button type="button" class="btn btn-info">登録</button>
-                            <button type="button" class="btn btn-primary">更新</button>
-
+                            <div class="form-group row  col-sm-12">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">名前</label>
+                                <div class="col-sm-5">
+                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group row  col-sm-12">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">生年月日</label>
+                                <div class="col-sm-5">
+                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group row  col-sm-12">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">性別</label>
+                                <div class="form-check form-check-inline ml-3">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio1" value="option1">
+                                    <label class="form-check-label" for="inlineRadio1">男</label>
+                                </div>
+                                <div class="form-check form-check-inline pl-5">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio2" value="option2">
+                                    <label class="form-check-label" for="inlineRadio2">女</label>
+                                </div>
+                            </div>
+                            <div class="form-group row  col-sm-12">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">郵便番号</label>
+                                <div class="col-sm-2">
+                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group row  col-sm-12">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">住所1</label>
+                                <div class="col-sm-5">
+                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group row  col-sm-12">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">住所2</label>
+                                <div class="col-sm-5">
+                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group row  col-sm-12">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">出身</label>
+                                <div class="col-sm-3">
+                                    <select id="inputState" class="form-control">
+                                        <option selected>Choose...</option>
+                                        <option>...</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-2">
+                                    <select id="inputState" class="form-control">
+                                        <option selected>Choose...</option>
+                                        <option>...</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- 分割線 -->
+                            <hr>
+                            <div class="form-group row ml-1 col-sm-12">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label"></label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                                    <label class="form-check-label" for="gridCheck">
+                                        アカウント内容が変更ある時メール通知を受け取る
+                                    </label>
+                                </div>
+                            </div>
+                        
+                        <hr>
+                        <div class="form-group row  col-sm-12">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">パスワード</label>
+                            <div class="col-sm-5">
+                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                            </div>
                         </div>
-                    </div><!-- contents -->
-                </form><!-- from -->
+                        <div class="form-group row  col-sm-12">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">パスワード確認</label>
+                            <div class="col-sm-5">
+                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                            </div>
+                        </div>
+                        <!-- 分割線 -->
+                        <hr>
+                    </div><!-- contents-body -->
+                    <div class="contents-footer">
+                        <button type="button" class="btn btn-secondary"
+                            onclick="window.close();return false;">戻る</button>
+                        <button type="button" class="btn btn-info">登録</button>
+                    </div>
+            </div><!-- contents -->
+            </form><!-- from -->
         </div><!-- container-fluid -->
-    </div><!-- main -->
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-</body>
+        </div><!-- main -->
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    </body>
 
-</html>
+    </html>
