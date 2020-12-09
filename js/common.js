@@ -12,7 +12,7 @@ $(function () {
   $("#header").load("sub/header.html");
   //メニュー読み取り
   $("#sidebarMenu").load("sub/menu.html");
-  $('<input type="checkbox" id="openSidebarMenu" class="openSidebarMenu">').insertAfter('#header');
+  $('<input type="checkbox" id="openSidebarMenu" class="openSidebarMenu" style="display: none;">').insertAfter('#header');
   $('<label for="openSidebarMenu" class="sidebarIconToggle"><div class="spinner diagonal part-1"></div><div class="spinner horizontal"></div><div class="spinner diagonal part-2"></div></label>').insertBefore('#sidebarMenu');
   //テーマ設定
   setColor();

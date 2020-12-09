@@ -21,13 +21,64 @@
         <script src="js/common.js"></script>
         <script>
             $(function () {
+                // validation
+                'use strict';
+                window.addEventListener('load', function () {
+                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                    var forms = document.getElementsByClassName('needs-validation');
+                    // Loop over them and prevent submission
+                    var validation = Array.prototype.filter.call(forms, function (form) {
+                        form.addEventListener('submit', function (event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        }, false);
+                    });
+                }, false);
                 // Shift-JISに変更する場合
                 $.ajaxSetup({
                     beforeSend: function (xhr) {
                         xhr.overrideMimeType("text/html;charset=Shift_JIS");
                     }
                 });
+
+                $('#zip').change(function () {
+                    //入力値をセット
+                    var param = {zipcode: $('#zip').val()}
+                    //zipcloudのAPIのURL
+                    var send_url = "http://zipcloud.ibsnet.co.jp/api/search";
+                    $.ajax({
+                        type: "GET",
+                        cache: false,
+                        data: param,
+                        url: send_url,
+                        dataType: "jsonp",
+                        success: function (res) {
+                            //結果によって処理を振り分ける
+                            if (res.status == 200) {
+                                //処理が成功したとき
+                                //該当する住所を表示
+                                for (var i = 0; i < res.results.length; i++) {
+                                    var result = res.results[i];
+                                    var address1 = result.address1;
+                                    var address2 = result.address2;
+                                    var address3 = result.address3;
+                                    var address = address1+address2+address3;
+                                    $('#address1').val(address);
+                                }
+                            }
+                        }
+                    });
+                });
             });
+
+            function _submit() {
+                if (window.confirm("このユーザを登録します。\nよろしいですか？")) {
+                    //document.forms["from"].submit();
+                }
+            }
         </script>
     </head>
 
@@ -39,117 +90,172 @@
         <!-- main start -->
         <div class="main">
             <div class="container-fluid">
-                <form>
+                <form name="form" method="POST" class="needs-validation" novalidate>
                     <div class="contents">
                         <div class="contents-header">ユーザ登録</div>
                         <div class="contents-body">
                             <div class="form-group row  col-sm-12">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">ユーザアカウント</label>
+                                <label for="userId" class="col-sm-2 col-form-label">ユーザID<span
+                                        class="badge badge-danger ml-2">必須</span></label>
                                 <div class="col-sm-5">
-                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                    <input type="text" class="form-control" id="userId" placeholder="ユーザID" required>
+                                    <div class="invalid-tooltip">
+                                        ユーザIDが入力されていません
+                                    </div>
                                 </div>
-                            </div>
 
+                            </div>
                             <div class="form-group row  col-sm-12">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">氏名</label>
+                                <label for="firstName" class="col-sm-2 col-form-label">氏名<span
+                                        class="badge badge-danger ml-2">必須</span></label>
                                 <div class="col-sm-5">
-                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                    <input type="text" class="form-control" id="firstName" placeholder="氏名" required>
+                                    <div class="invalid-tooltip">
+                                        氏名が入力されていません
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row  col-sm-12">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">名前</label>
+                                <label for="lastName" class="col-sm-2 col-form-label">名前<span
+                                        class="badge badge-danger ml-2">必須</span></label>
                                 <div class="col-sm-5">
-                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                    <input type="text" class="form-control" id="lastName" placeholder="名前" required>
+                                    <div class="invalid-tooltip">
+                                        名前が入力されていません
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row  col-sm-12">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">生年月日</label>
+                                <label for="birth" class="col-sm-2 col-form-label">生年月日<span
+                                        class="badge badge-danger ml-2">必須</span></label>
                                 <div class="col-sm-5">
-                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                    <input type="text" class="form-control" id="birth" placeholder="生年月日" required>
+                                    <div class="invalid-tooltip">
+                                        生年月日が入力されていません
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row  col-sm-12">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">性別</label>
+                                <label for="sex" class="col-sm-2 col-form-label">性別<span
+                                        class="badge badge-danger ml-2">必須</span></label>
                                 <div class="form-check form-check-inline ml-3">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                        id="inlineRadio1" value="option1">
-                                    <label class="form-check-label" for="inlineRadio1">男</label>
+                                    <input class="form-check-input" type="radio" name="sex" id="man" value="1" checked>
+                                    <label class="form-check-label" for="man">男</label>
                                 </div>
                                 <div class="form-check form-check-inline pl-5">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                        id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio2">女</label>
+                                    <input class="form-check-input" type="radio" name="sex" id="women" value="2">
+                                    <label class="form-check-label" for="women">女</label>
                                 </div>
                             </div>
                             <div class="form-group row  col-sm-12">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">郵便番号</label>
+                                <label for="email" class="col-sm-2 col-form-label">メールアドレス<span
+                                        class="badge badge-danger ml-2">必須</span></label>
+                                <div class="col-sm-5">
+                                    <input type="email" class="form-control" id="email" placeholder="Email" required>
+                                    <div class="invalid-tooltip">
+                                        生年月日が入力されていません
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row  col-sm-12">
+                                <label for="tel"" class=" col-sm-2 col-form-label">電話番号<span
+                                        class="badge badge-danger ml-2">必須</span></label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="tel" placeholder="電話番号" required>
+                                    <div class="invalid-tooltip">
+                                        電話番号が入力されていません
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row  col-sm-12">
+                                <label for="zip" class="col-sm-2 col-form-label">郵便番号<span
+                                        class="badge badge-danger ml-2">必須</span></label>
                                 <div class="col-sm-2">
-                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                    <input type="text" class="form-control" id="zip" placeholder="郵便番号" required>
+                                    <div class="invalid-tooltip">
+                                        郵便番号が入力されていません
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row  col-sm-12">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">住所1</label>
-                                <div class="col-sm-5">
-                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="form-group row  col-sm-12">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">住所2</label>
-                                <div class="col-sm-5">
-                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="form-group row  col-sm-12">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">出身</label>
                                 <div class="col-sm-3">
-                                    <select id="inputState" class="form-control">
-                                        <option selected>Choose...</option>
+                                    <small id="passwordHelpBlock" class="form-text text-muted">※郵便番号のフォーカスで住所1は自動入力</small>
+                                </div>
+                            </div>
+                            <div class="form-group row  col-sm-12">
+                                <label for="address1" class="col-sm-2 col-form-label">住所1<span
+                                        class="badge badge-danger ml-2">必須</span></label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="address1" placeholder="県市町..." required>
+                                    <div class="invalid-tooltip">
+                                        住所1が入力されていません
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row  col-sm-12">
+                                <label for="address2" class="col-sm-2 col-form-label">住所2<span
+                                        class="badge badge-secondary ml-2">任意</span></label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="address2" placeholder="番地建物名部屋名...">
+                                </div>
+                            </div>
+                            <div class="form-group row  col-sm-12">
+                                <label for="nutag" class="col-sm-2 col-form-label">出身<span
+                                        class="badge badge-secondary ml-2">任意</span></label>
+                                <div class="col-sm-3">
+                                    <select id="nutag_moji" class="form-control">
+                                        <option selected>指定する</option>
                                         <option>...</option>
                                     </select>
                                 </div>
                                 <div class="col-sm-2">
-                                    <select id="inputState" class="form-control">
-                                        <option selected>Choose...</option>
+                                    <select id="nutag_hote" class="form-control">
+                                        <option selected>指定する</option>
                                         <option>...</option>
                                     </select>
                                 </div>
                             </div>
                             <!-- 分割線 -->
                             <hr>
-                            <div class="form-group row ml-1 col-sm-12">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label"></label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                                    <label class="form-check-label" for="gridCheck">
+                            <div class="form-group row col-sm-12 ml-2">
+                                <div class="form-check  col-sm-12">
+                                    <input class="form-check-input col-sm-4" type="checkbox" id="sendMailFlg">
+                                    <label class="form-check-label col-sm-10 offset-sm-2" for="sendMailFlg">
                                         アカウント内容が変更ある時メール通知を受け取る
                                     </label>
                                 </div>
                             </div>
-                        
-                        <hr>
-                        <div class="form-group row  col-sm-12">
-                            <label for="inputPassword3" class="col-sm-2 col-form-label">パスワード</label>
-                            <div class="col-sm-5">
-                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                            <hr>
+                            <div class="form-group row  col-sm-12">
+                                <label for="password1" class="col-sm-2 col-form-label">パスワード<span
+                                        class="badge badge-danger ml-2">必須</span></label>
+                                <div class="col-sm-5">
+                                    <input type="password" class="form-control" id="password1" placeholder="パスワード"
+                                        required>
+                                    <div class="invalid-tooltip">
+                                        パスワードが入力されていません
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row  col-sm-12">
-                            <label for="inputPassword3" class="col-sm-2 col-form-label">パスワード確認</label>
-                            <div class="col-sm-5">
-                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                            <div class="form-group row  col-sm-12">
+                                <label for="password2" class="col-sm-2 col-form-label">パスワード確認<span
+                                        class="badge badge-danger ml-2">必須</span></label>
+                                <div class="col-sm-5">
+                                    <input type="password" class="form-control" id="password2" placeholder="パスワード確認"
+                                        required>
+                                    <div class="invalid-tooltip">
+                                        パスワード確認が入力されていません
+                                    </div>
+                                </div>
                             </div>
+                            <hr>
+                            <!-- 分割線 -->
+                        </div><!-- contents-body -->
+                        <div class="contents-footer border-0">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block"
+                                onclick="_submit()">上記内容で登録する</button>
                         </div>
-                        <!-- 分割線 -->
-                        <hr>
-                    </div><!-- contents-body -->
-                    <div class="contents-footer">
-                        <button type="button" class="btn btn-secondary"
-                            onclick="window.close();return false;">戻る</button>
-                        <button type="button" class="btn btn-info">登録</button>
-                    </div>
-            </div><!-- contents -->
-            </form><!-- from -->
-        </div><!-- container-fluid -->
+                    </div><!-- contents -->
+                </form><!-- from -->
+            </div><!-- container-fluid -->
         </div><!-- main -->
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

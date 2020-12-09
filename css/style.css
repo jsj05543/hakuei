@@ -62,8 +62,8 @@ body {
     text-decoration: none;
     padding: 10px 10px 10px 10px;
 }
-input[type=checkbox] {
-    /* display: none; */
+.sidebarMenuInner input[type=checkbox] {
+    display: none;
 }
 /* input[type="checkbox"]:checked ~ #sidebarMenu {
     transform: translateX(0);

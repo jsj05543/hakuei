@@ -21,6 +21,22 @@
     <script src="js/common.js"></script>
     <script>
         $(function () {
+            // validation
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
             // Shift-JISに変更する場合
             $.ajaxSetup({
                 beforeSend: function (xhr) {
@@ -28,7 +44,12 @@
                 }
             });
         });
+        function _submit() {
+            if (window.confirm("この施設を登録します。\nよろしいですか？")) {
+            }
+        }
     </script>
+
 </head>
 
 <body>
@@ -39,25 +60,30 @@
     <!-- main start -->
     <div class="main">
         <div class="container-fluid">
-            <form>
+            <form name="form" method="POST" class="needs-validation" novalidate>
                 <div class="contents">
                     <div class="contents-header">施設区分登録</div>
-                    <div class="contents-body">
+                    <div class="contents-body pb-5">
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="facilityKbn">施設区分</label>
-                                <input type="text" class="form-control" id="facilityKbn" placeholder="施設区分">
+                                <label for="facilityKbn">施設区分<span class="badge badge-danger ml-2">必須</span></label>
+                                <input type="text" class="form-control" id="facilityKbn" placeholder="施設区分" required>
+                                <div class="invalid-tooltip">
+                                    施設区分が入力されていません
+                                </div>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="facilityName">施設名</label>
-                                <input type="text" class="form-control" id="facilityName" placeholder="施設名">
+                                <label for="facilityName">施設名<span class="badge badge-danger ml-2">必須</span></label>
+                                <input type="text" class="form-control" id="facilityName" placeholder="施設名" required>
+                                <div class="invalid-tooltip">
+                                    施設名が入力されていません
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="contents-footer">
-                        <button type="button" class="btn btn-secondary"
-                            onclick="window.close();return false;">戻る</button>
-                        <button type="button" class="btn btn-info">登録</button>
+                    <div class="contents-footer border-0">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block"
+                            onclick="_submit()">上記内容で登録する</button>
                     </div>
                 </div><!-- contents -->
             </form><!-- from -->

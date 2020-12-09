@@ -28,20 +28,26 @@
                 }
             });
             //編集ボタンのイベント
-            $('#edit').click(function() {
-               $('#contents-body-edit').hide();
-               $('#contents-body-update').show();
-               $('#contents-footer-edit').hide();
-               $('#contents-footer-update').show();
+            $('#edit').click(function () {
+                $('#contents-body-edit').hide();
+                $('#contents-body-update').show();
+                $('#contents-footer-edit').hide();
+                $('#contents-footer-update').show();
             });
             //編集ボタンのイベント
-            $('#update').click(function() {
-               $('#contents-body-edit').show();
-               $('#contents-body-update').hide();
-               $('#contents-footer-edit').show();
-               $('#contents-footer-update').hide();
+            $('#update').click(function () {
+                if (window.confirm("施設区分を更新します。\nよろしいですか？")) {
+                    cancel();
+                    document.forms["from"].submit();
+                }
             });
         });
+        function cancel() {
+            $('#contents-body-edit').show();
+            $('#contents-body-update').hide();
+            $('#contents-footer-edit').show();
+            $('#contents-footer-update').hide();
+        }
     </script>
 </head>
 
@@ -88,7 +94,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="contents-body" id="contents-body-update"  style="display:none;">
+                    <div class="contents-body" id="contents-body-update" style="display:none;">
                         <table class="table table-striped table-hover table-bordered">
                             <thead>
                                 <tr>
@@ -102,16 +108,16 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><input type="text" class="form-control" name="facilityKbn" value="1"/></td>
-                                    <td><input type="text" class="form-control" name="facilityName" value="ハード"/></td>
+                                    <td><input type="text" class="form-control" name="facilityKbn" value="1" /></td>
+                                    <td><input type="text" class="form-control" name="facilityName" value="ハード" /></td>
                                     <td>user1</td>
                                     <td>2020/12/02 20:52:13</td>
                                     <td>user2</td>
                                     <td>2020/12/02 20:52:14</td>
                                 </tr>
                                 <tr>
-                                    <td><input type="text" class="form-control" name="facilityKbn" value="2"/></td>
-                                    <td><input type="text" class="form-control" name="facilityName" value="ソフト"/></td>
+                                    <td><input type="text" class="form-control" name="facilityKbn" value="2" /></td>
+                                    <td><input type="text" class="form-control" name="facilityName" value="ソフト" /></td>
                                     <td>user1</td>
                                     <td>2020/12/02 20:52:13</td>
                                     <td>user2</td>
@@ -126,7 +132,8 @@
                     </div>
                     <div class="contents-footer" id="contents-footer-update" style="display:none;">
                         <button type="button" class="btn btn-primary" id="update">更新</button>
-                </div><!-- contents -->
+                        <button type="button" class="btn btn-secondary" onclick="cancel()">キャンセル</button>
+                    </div><!-- contents -->
             </form><!-- from -->
         </div><!-- container-fluid -->
     </div><!-- main -->

@@ -29,20 +29,26 @@
             });
 
             //編集ボタンのイベント
-            $('#edit').click(function() {
-               $('#contents-body-edit').hide();
-               $('#contents-body-update').show();
-               $('#contents-footer-edit').hide();
-               $('#contents-footer-update').show();
+            $('#edit').click(function () {
+                $('#contents-body-edit').hide();
+                $('#contents-body-update').show();
+                $('#contents-footer-edit').hide();
+                $('#contents-footer-update').show();
             });
             //編集ボタンのイベント
-            $('#update').click(function() {
-               $('#contents-body-edit').show();
-               $('#contents-body-update').hide();
-               $('#contents-footer-edit').show();
-               $('#contents-footer-update').hide();
+            $('#update').click(function () {
+                if (window.confirm("国区分を更新します。\nよろしいですか？")) {
+                    cancel();
+                    document.forms["from"].submit();
+                }
             });
         });
+        function cancel() {
+            $('#contents-body-edit').show();
+            $('#contents-body-update').hide();
+            $('#contents-footer-edit').show();
+            $('#contents-footer-update').hide();
+        }
     </script>
 </head>
 
@@ -111,8 +117,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><input type="text" class="form-control" name="contryKbn" value="1"/></td>
-                                    <td><input type="text" class="form-control" name="contryName" value="中国"/></td>
+                                    <td><input type="text" class="form-control" name="contryKbn" value="1" /></td>
+                                    <td><input type="text" class="form-control" name="contryName" value="中国" /></td>
                                     <td>user1</td>
                                     <td>2020/12/02 20:52:13</td>
                                     <td>user2</td>
@@ -120,15 +126,15 @@
                                 </tr>
                                 <tr>
                                     <td><input type="text" class="form-control" name="contryKbn" value="2"></td>
-                                    <td><input type="text" class="form-control" name="contryName" value="日本"/></td>
+                                    <td><input type="text" class="form-control" name="contryName" value="日本" /></td>
                                     <td>user1</td>
                                     <td>2020/12/02 20:52:13</td>
                                     <td>user2</td>
                                     <td>2020/12/02 20:52:14</td>
                                 </tr>
                                 <tr>
-                                    <td><input type="text" class="form-control" name="contryKbn" value="3"/></td>
-                                    <td><input type="text" class="form-control" name="contryName" value="両方"/></td>
+                                    <td><input type="text" class="form-control" name="contryKbn" value="3" /></td>
+                                    <td><input type="text" class="form-control" name="contryName" value="両方" /></td>
                                     <td>user1</td>
                                     <td>2020/12/02 20:52:13</td>
                                     <td>user2</td>
@@ -137,13 +143,14 @@
                             </tbody>
                         </table>
                     </div>
-                    
+
                     <!-- contents-body -->
                     <div class="contents-footer" id="contents-footer-edit">
                         <button type="button" class="btn btn-primary" id="edit">編集</button>
                     </div>
                     <div class="contents-footer" id="contents-footer-update" style="display:none;">
                         <button type="button" class="btn btn-primary" id="update">更新</button>
+                        <button type="button" class="btn btn-secondary" onclick="cancel()">キャンセル</button>
                     </div>
                 </div><!-- contents -->
             </form><!-- from -->

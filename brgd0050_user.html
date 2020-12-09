@@ -19,6 +19,12 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="js/common.js"></script>
+
+    <style>
+        .card-link{
+            text-decoration:underline;
+        }
+    </style>
     <script>
         $(function () {
             // Shift-JISに変更する場合
@@ -28,6 +34,14 @@
                 }
             });
         });
+        function editUser() {
+            document.forms["from"].action = "brgd0051_user.html";
+        }
+        function delUser() {
+            if (window.confirm("選択したユーザを削除します。\nよろしいですか？")) {
+                document.forms["from"].submit();
+            }
+        }
     </script>
 </head>
 
@@ -39,9 +53,9 @@
     <!-- main start -->
     <div class="main">
         <div id="" class="container-fluid">
-            <form>
+            <form id="from" method="POST">
                 <div class="contents">
-                    <div　name="contents-header" class="contents-header">ユーザ一覧</div>
+                    <div class="contents-header">ユーザ一覧</div>
                     <div class="contents-body">
                         <table class="table table-striped table-hover table-bordered">
                             <thead>
@@ -49,70 +63,77 @@
                                     <th>選択</th>
                                     <th>ユーザID</th>
                                     <th>ユーザ名</th>
-                                    <th>パスワード</th>
-                                    <th>ログイン日時</th>
-                                    <th>ログアウト日時</th>
+                                    <th>生年月日</th>
+                                    <th>性別</th>
+                                    <th>電話番号</th>
+                                    <th>メールアドレス</th>
+                                    <th>郵便番号</th>
+                                    <th>住所</th>
+                                    <th>出身</th>
+                                    <th>メール通知</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                            <label class="custom-control-label" for="customCheck1"></label>
+                                        <div class="form-check">
+                                            <input class="form-check-input position-static" type="radio"
+                                                name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
                                         </div>
                                     </td>
-                                    <td>1</td>
-                                    <td>jsj05543</td>
-                                    <td>bai212ying</td>
-                                    <td>2017/01/01 00:00:00</td>
-                                    <td>2017/01/01 00:00:00</td>
+                                    <td><a href="#" class="card-link" title="照会する">U01</a></td>
+                                    <td>burgud</td>
+                                    <td>2017/01/01</td>
+                                    <td>男</td>
+                                    <td>080-1111-0000</td>
+                                    <td>aaaaaa@yahoo.co.jp</td>
+                                    <td>3400011</td>
+                                    <td>東京都通遼市山町１－１－２３－３４５</td>
+                                    <td>内モンゴル通遼市</td>
+                                    <td>受信可</td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                            <label class="custom-control-label" for="customCheck1"></label>
+                                        <div class="form-check">
+                                            <input class="form-check-input position-static" type="radio"
+                                                name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
                                         </div>
                                     </td>
-                                    <td>2</td>
-                                    <td>jsj05543</td>
-                                    <td>bai212ying</td>
-                                    <td>2017/01/01 00:00:00</td>
-                                    <td>2017/01/01 00:00:00</td>
+                                    <td><a href="#" class="card-link" title="照会する">U02</a></td>
+                                    <td>burgud</td>
+                                    <td>2017/01/01</td>
+                                    <td>男</td>
+                                    <td>080-1111-0000</td>
+                                    <td>aaaaaa@yahoo.co.jp</td>
+                                    <td>3400011</td>
+                                    <td>東京都通遼市山町１－１－２３－３４５</td>
+                                    <td>内モンゴル通遼市</td>
+                                    <td>受信可</td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                            <label class="custom-control-label" for="customCheck1"></label>
+                                        <div class="form-check">
+                                            <input class="form-check-input position-static" type="radio"
+                                                name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
                                         </div>
                                     </td>
-                                    <td>3</td>
-                                    <td>jsj05543</td>
-                                    <td>bai212ying</td>
-                                    <td>2017/01/01 00:00:00</td>
-                                    <td>2017/01/01 00:00:00</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                            <label class="custom-control-label" for="customCheck1"></label>
-                                        </div>
-                                    </td>
-                                    <td>4</td>
-                                    <td>jsj05543</td>
-                                    <td>bai212ying</td>
-                                    <td>2017/01/01 00:00:00</td>
-                                    <td>2017/01/01 00:00:00</td>
+                                    <td><a href="#" class="card-link" title="照会する">U03</a></td>
+                                    <td>burgud</td>
+                                    <td>2017/01/01</td>
+                                    <td>男</td>
+                                    <td>080-1111-0000</td>
+                                    <td>aaaaaa@yahoo.co.jp</td>
+                                    <td>3400011</td>
+                                    <td>東京都通遼市山町１－１－２３－３４５</td>
+                                    <td>内モンゴル通遼市</td>
+                                    <td>受信可</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div><!-- contents-body -->
                     <div class="contents-footer">
-                        <button type="button" class="btn btn-primary">編集</button>
-                        <button type="button" class="btn btn-danger">削除</button>
+                        <button type="button" class="btn btn-primary" onclick="editUser()">編集</button>
+                        <button type="button" class="btn btn-danger" onclick="delUser()">削除</button>
                     </div>
                 </div><!-- contents -->
             </form><!-- from -->
