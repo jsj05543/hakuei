@@ -11,6 +11,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link rel="shortcut icon" href="img/favicon.ico" type="favicon.ico" />
         <link rel="stylesheet" href="css/style.css">
@@ -94,47 +95,51 @@
                     <div class="contents">
                         <div class="contents-header">ユーザ登録</div>
                         <div class="contents-body">
+                            <!-- ユーザID -->
                             <div class="form-group row  col-sm-12">
                                 <label for="userId" class="col-sm-2 col-form-label">ユーザID<span
                                         class="badge badge-danger ml-2">必須</span></label>
                                 <div class="col-sm-5">
                                     <input type="text" class="form-control" id="userId" placeholder="ユーザID" required>
-                                    <div class="invalid-tooltip">
+                                    <div class="invalid-feedback">
                                         ユーザIDが入力されていません
                                     </div>
                                 </div>
-
                             </div>
+                            <!-- 氏名 -->
                             <div class="form-group row  col-sm-12">
                                 <label for="firstName" class="col-sm-2 col-form-label">氏名<span
                                         class="badge badge-danger ml-2">必須</span></label>
                                 <div class="col-sm-5">
                                     <input type="text" class="form-control" id="firstName" placeholder="氏名" required>
-                                    <div class="invalid-tooltip">
+                                    <div class="invalid-feedback">
                                         氏名が入力されていません
                                     </div>
                                 </div>
                             </div>
+                            <!-- 名前 -->
                             <div class="form-group row  col-sm-12">
                                 <label for="lastName" class="col-sm-2 col-form-label">名前<span
                                         class="badge badge-danger ml-2">必須</span></label>
                                 <div class="col-sm-5">
                                     <input type="text" class="form-control" id="lastName" placeholder="名前" required>
-                                    <div class="invalid-tooltip">
+                                    <div class="invalid-feedback">
                                         名前が入力されていません
                                     </div>
                                 </div>
                             </div>
+                            <!-- 生年月日 -->
                             <div class="form-group row  col-sm-12">
                                 <label for="birth" class="col-sm-2 col-form-label">生年月日<span
                                         class="badge badge-danger ml-2">必須</span></label>
                                 <div class="col-sm-5">
                                     <input type="text" class="form-control" id="birth" placeholder="生年月日" required>
-                                    <div class="invalid-tooltip">
+                                    <div class="invalid-feedback">
                                         生年月日が入力されていません
                                     </div>
                                 </div>
                             </div>
+                            <!-- 性別 -->
                             <div class="form-group row  col-sm-12">
                                 <label for="sex" class="col-sm-2 col-form-label">性別<span
                                         class="badge badge-danger ml-2">必須</span></label>
@@ -147,32 +152,35 @@
                                     <label class="form-check-label" for="women">女</label>
                                 </div>
                             </div>
+                            <!-- メールアドレス -->
                             <div class="form-group row  col-sm-12">
                                 <label for="email" class="col-sm-2 col-form-label">メールアドレス<span
                                         class="badge badge-danger ml-2">必須</span></label>
                                 <div class="col-sm-5">
                                     <input type="email" class="form-control" id="email" placeholder="Email" required>
-                                    <div class="invalid-tooltip">
+                                    <div class="invalid-feedback">
                                         生年月日が入力されていません
                                     </div>
                                 </div>
                             </div>
+                            <!-- 電話番号 -->
                             <div class="form-group row  col-sm-12">
                                 <label for="tel"" class=" col-sm-2 col-form-label">電話番号<span
                                         class="badge badge-danger ml-2">必須</span></label>
                                 <div class="col-sm-5">
                                     <input type="text" class="form-control" id="tel" placeholder="電話番号" required>
-                                    <div class="invalid-tooltip">
+                                    <div class="invalid-feedback">
                                         電話番号が入力されていません
                                     </div>
                                 </div>
                             </div>
+                            <!-- 郵便番号 -->
                             <div class="form-group row  col-sm-12">
                                 <label for="zip" class="col-sm-2 col-form-label">郵便番号<span
                                         class="badge badge-danger ml-2">必須</span></label>
                                 <div class="col-sm-2">
                                     <input type="text" class="form-control" id="zip" placeholder="郵便番号" required>
-                                    <div class="invalid-tooltip">
+                                    <div class="invalid-feedback">
                                         郵便番号が入力されていません
                                     </div>
                                 </div>
@@ -180,16 +188,18 @@
                                     <small id="passwordHelpBlock" class="form-text text-muted">※郵便番号のフォーカスで住所1は自動入力</small>
                                 </div>
                             </div>
+                            <!-- 住所1 -->
                             <div class="form-group row  col-sm-12">
                                 <label for="address1" class="col-sm-2 col-form-label">住所1<span
                                         class="badge badge-danger ml-2">必須</span></label>
                                 <div class="col-sm-5">
                                     <input type="text" class="form-control" id="address1" placeholder="県市町..." required>
-                                    <div class="invalid-tooltip">
+                                    <div class="invalid-feedback">
                                         住所1が入力されていません
                                     </div>
                                 </div>
                             </div>
+                            <!-- 住所2 -->
                             <div class="form-group row  col-sm-12">
                                 <label for="address2" class="col-sm-2 col-form-label">住所2<span
                                         class="badge badge-secondary ml-2">任意</span></label>
@@ -197,6 +207,7 @@
                                     <input type="text" class="form-control" id="address2" placeholder="番地建物名部屋名...">
                                 </div>
                             </div>
+                            <!-- 出身 -->
                             <div class="form-group row  col-sm-12">
                                 <label for="nutag" class="col-sm-2 col-form-label">出身<span
                                         class="badge badge-secondary ml-2">任意</span></label>
@@ -215,6 +226,7 @@
                             </div>
                             <!-- 分割線 -->
                             <hr>
+                            <!-- メール通知 -->
                             <div class="form-group row col-sm-12 ml-2">
                                 <div class="form-check  col-sm-12">
                                     <input class="form-check-input col-sm-4" type="checkbox" id="sendMailFlg">
@@ -224,13 +236,14 @@
                                 </div>
                             </div>
                             <hr>
+                            <!-- パスワード -->
                             <div class="form-group row  col-sm-12">
                                 <label for="password1" class="col-sm-2 col-form-label">パスワード<span
                                         class="badge badge-danger ml-2">必須</span></label>
                                 <div class="col-sm-5">
                                     <input type="password" class="form-control" id="password1" placeholder="パスワード"
                                         required>
-                                    <div class="invalid-tooltip">
+                                    <div class="invalid-feedback">
                                         パスワードが入力されていません
                                     </div>
                                 </div>
@@ -241,7 +254,7 @@
                                 <div class="col-sm-5">
                                     <input type="password" class="form-control" id="password2" placeholder="パスワード確認"
                                         required>
-                                    <div class="invalid-tooltip">
+                                    <div class="invalid-feedback">
                                         パスワード確認が入力されていません
                                     </div>
                                 </div>

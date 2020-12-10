@@ -19,11 +19,29 @@
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
     crossorigin="anonymous"></script>
   <script src="js/common.js"></script>
+  <style>
+    a[data-toggle="collapse"].collapsed::after {
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      content: "＋";
+      /* chevron-down */
+      float: left;
+      margin-right: 8px;
+    }
+
+    a[data-toggle="collapse"]::after {
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      content: "ー";
+      /* chevron-up */
+      float: left;
+      margin-right: 8px;
+    }
+  </style>
   <script>
     // 無効なフィールドがある場合にフォーム送信を無効にするスターターJavaScriptの実例
     (function () {
       'use strict';
-
       window.addEventListener('load', function () {
         // カスタムブートストラップ検証スタイルを適用するすべてのフォームを取得
         var forms = document.getElementsByClassName('needs-validation');
@@ -47,6 +65,12 @@
         }
       });
     });
+
+    function _submit() {
+      if (window.confirm("このユーザを登録します。\nよろしいですか？")) {
+        //document.forms["from"].submit();
+      }
+    }
   </script>
 </head>
 
@@ -60,87 +84,200 @@
     <div class="container-fluid">
       <form class="needs-validation" novalidate>
         <div class="contents">
-          <div name="contents-header"　class="contents-header">アカウント登録</div>
+          <div class="contents-header">アカウント登録</div>
           <div class="contents-body">
-            <div class="form-row">
-              <!-- ネット名 -->
-              <div class="form-group col-md-4">
-                <label for="InputName">ネット名<span class="badge badge-danger">必須</span></label>
-                <input type="text" class="form-control" id="InputName" placeholder="ネット名" required>
-                <div class="valid-feedback">
-                  入力済み!
-                </div>
+            <!-- アカウント利用先名 -->
+            <div class="form-group row  col-sm-12">
+              <label for="accountUsedName" class="col-sm-2 col-form-label">アカウント利用先名<span
+                  class="badge badge-danger ml-2">必須</span></label>
+              <div class="col-sm-5">
+                <input type="text" class="form-control" id="accountUsedName" placeholder="アカウント利用先名" required>
                 <div class="invalid-feedback">
-                  ネット名を入力してください
+                  アカウント利用先名が入力されていません
                 </div>
               </div>
             </div>
-            <div class="form-row">
-              <!-- アカウント -->
-              <div class="form-group col-md-4">
-                <label for="InputAccount">アカウント<span class="badge badge-danger">必須</span></label>
-                <input type="text" class="form-control" id="InputAccount" placeholder="アカウント" required>
-                <div class="valid-feedback">
-                  入力済み!
-                </div>
+            <!-- 利用先説明 -->
+            <div class="form-group row col-sm-12">
+              <label for="usedDetail" class="col-sm-2 col-form-label">利用先説明<span
+                  class="badge badge-secondary ml-2">任意</span></label>
+              <div class="col-sm-5">
+                <input type="text" class="form-control" id="usedDetail" placeholder="利用先説明">
+              </div>
+            </div>
+            <!-- アカウント名 -->
+            <div class="form-group row col-sm-12">
+              <label for="accountName" class="col-sm-2 col-form-label">アカウント名<span
+                  class="badge badge-danger ml-2">必須</span></label>
+              <div class="col-sm-5">
+                <input type="text" class="form-control" id="accountName" placeholder="アカウント名" required>
                 <div class="invalid-feedback">
-                  アカウントを入力してください
+                  アカウント名が入力されていません
                 </div>
               </div>
-              <!-- パスワード -->
-              <div class="form-group col-md-4">
-                <label for="InputPassword">パスワード<span class="badge badge-danger">必須</span></label>
-                <input type="text" class="form-control" id="InputPassword" placeholder="パスワード" required>
-              </div>
-              <div class="valid-feedback">
-                入力済み!
-              </div>
-              <div class="invalid-feedback">
-                ネット名を入力してください
+            </div>
+            <!-- パスワード -->
+            <div class="form-group row col-sm-12">
+              <label for="password" class="col-sm-2 col-form-label">パスワード<span
+                  class="badge badge-danger ml-2">必須</span></label>
+              <div class="col-sm-5">
+                <input type="text" class="form-control" id="password"" placeholder=" パスワード" required>
+                <div class="invalid-feedback">
+                  パスワードが入力されていません
+                </div>
               </div>
             </div>
-            <div class="form-row">
-              <!-- 国区分 -->
-              <div class="form-group col-md-4">
-                <label for="Inputradiocountry">国区分</label>
-                <label class="radio-inline font-weight-normal"><input type="radio" name="China" value="1">中国</label>
-                <label class="radio-inline font-weight-normal"><input type="radio" name="Japen" value="2">日本</label>
+            <hr>
+            <!-- 国区分 -->
+            <div class="form-group row col-sm-12">
+              <label for="countryKbn" class="col-sm-2 col-form-label">国区分<span
+                  class="badge badge-danger ml-2">必須</span></label>
+              <div class="form-check form-check-inline ml-3">
+                <input class="form-check-input" type="radio" name="countryKbn" id="japan" value="1" checked>
+                <label class="form-check-label" for="japan">日本</label>
               </div>
-              <!-- ID区分 -->
-              <div class="form-group col-md-4">
-                <label for="Inputradioid">ID区分</label>
-                <label class="radio-inline font-weight-normal"><input type="radio" name="hard" value="1"> ハード</label>
-                <label class="radio-inline font-weight-normal"><input type="radio" name="soft" value="2"> ソフト</label>
-              </div>
-            </div>
-            <!-- 分割線 -->
-            <hr color="#4990c0">
-            <!-- 全確認質問1 -->
-            <div class="form-row">
-              <div class="form-group col-md-8">
-                <label for="InputSecurity1">安全確認質問1</label>
-                <textarea placeholder="安全確認質問1" rows="2" class="form-control" id="InputTextareaSecurity1"></textarea>
+              <div class="form-check form-check-inline pl-5">
+                <input class="form-check-input" type="radio" name="countryKbn" id="china" value="2">
+                <label class="form-check-label" for="china">中国</label>
               </div>
             </div>
-            <!-- 全確認質問2 -->
-            <div class="form-row">
-              <div class="form-group col-md-8">
-                <label for="InputSecurity2">安全確認質問2</label>
-                <textarea placeholder="安全確認質問2" rows="2" class="form-control" id="InputTextareaSecurity2"></textarea>
+            <!-- 施設区分 -->
+            <div class="form-group row col-sm-12">
+              <label for="facilityKbn" class="col-sm-2 col-form-label">施設区分<span
+                  class="badge badge-danger ml-2">必須</span></label>
+              <div class="form-check form-check-inline ml-3">
+                <input class="form-check-input" type="radio" name="facilityKbn" id="web" value="1" checked>
+                <label class="form-check-label" for="man">WEB</label>
+              </div>
+              <div class="form-check form-check-inline pl-5">
+                <input class="form-check-input" type="radio" name="facilityKBn" id="webNot" value="2">
+                <label class="form-check-label" for="women">WEB以外</label>
               </div>
             </div>
-            <!-- 全確認質問3 -->
-            <div class="form-row ">
-              <div class="form-group col-md-8">
-                <label for="InputSecurity3">安全確認質問3</label>
-                <textarea placeholder="安全確認質問3" rows="2" class="form-control" id="InputTextareaSecurity3"></textarea>
+            <!-- 権限区分 -->
+            <div class="form-group row col-sm-12">
+              <label for="authorityKbn" class="col-sm-2 col-form-label">権限区分<span
+                  class="badge badge-danger ml-2">必須</span></label>
+              <div class="form-check form-check-inline ml-3">
+                <input class="form-check-input" type="radio" name="authorityKbn" id="manager" value="1" checked>
+                <label class="form-check-label" for="manager">管理者</label>
+              </div>
+              <div class="form-check form-check-inline pl-5">
+                <input class="form-check-input" type="radio" name="authorityKbn" id="viewer" value="2">
+                <label class="form-check-label" for="viewer">閲覧者</label>
+              </div>
+            </div>
+            <hr>
+            <!-- 安全確認質問  -->
+            <div class="card mb-3">
+              <!-- card-header -->
+              <div class="card-header" role="tab" id="securityQueryAreaHeader">
+                <h6 class="mb-0">
+                  <a href="#securityQueryArea" class="collapsed text-body d-block" role="button"
+                    data-toggle="collapse" aria-expanded="true" aria-controls="securityQueryArea">安全確認質問<span
+                      class="badge badge-secondary ml-2">任意</span></a>
+                </h6>
+              </div>
+              <!-- /.card-header -->
+              <!-- collapse -->
+              <div class="collapse" role="tabpanel" id="securityQueryArea" aria-labelledby="securityQueryAreaHeader"
+                aria-expanded="false">
+                <div class="form-group row  col-sm-12 mt-3">
+                  <label for="query1" class="col-sm-1 col-form-label offset-sm-1">質問1</label>
+                  <div class="col-sm-4">
+                    <select id="query1" class="form-control">
+                      <option selected>指定する</option>
+                      <option>...</option>
+                    </select>
+                  </div>
+                  <label for="answer1" class="col-sm-1 col-form-label">回答1</label>
+                  <div class="col-sm-4">
+                    <select id="answer1" class="form-control pr-3">
+                      <option selected>指定する</option>
+                      <option>...</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row col-sm-12">
+                  <label for="query2" class="col-sm-1 col-form-label offset-sm-1">質問2</label>
+                  <div class="col-sm-4">
+                    <select id="query2" class="form-control">
+                      <option selected>指定する</option>
+                      <option>...</option>
+                    </select>
+                  </div>
+                  <label for="answer2" class="col-sm-1 col-form-label">回答2</label>
+                  <div class="col-sm-4">
+                    <select id="answer2" class="form-control pr-3">
+                      <option selected>指定する</option>
+                      <option>...</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row col-sm-12">
+                  <label for="query3" class="col-sm-1 col-form-label offset-sm-1">質問3</label>
+                  <div class="col-sm-4">
+                    <select id="query3" class="form-control">
+                      <option selected>指定する</option>
+                      <option>...</option>
+                    </select>
+                  </div>
+                  <label for="answer3" class="col-sm-1 col-form-label">回答3</label>
+                  <div class="col-sm-4">
+                    <select id="answer3" class="form-control pr-3">
+                      <option selected>指定する</option>
+                      <option>...</option>
+                    </select>
+                  </div>
+                </div>
+              </div><!-- /.collapse -->
+            </div><!-- /.安全確認質問  -->
+            <!-- 旧パスワード -->
+            <div class="card mb-3">
+              <!-- card-header -->
+              <div class="card-header" role="tab" id="oldpasswordHeader">
+                <h6 class="mb-0">
+                  <a href="#oldpassword" class="collapsed text-body d-block" role="button"
+                    data-toggle="collapse" aria-expanded="true" aria-controls="oldpassword">旧パスワード<span
+                      class="badge badge-secondary ml-2">任意</span></a>
+                </h6>
+              </div>
+              <!-- /.card-header -->
+              <!-- collapse -->
+              <div class="collapse" role="tabpanel" id="oldpassword" aria-labelledby="oldpasswordlHeader"
+                aria-expanded="false">
+                <div class="form-group row col-sm-12 mt-3">
+                  <label for="oldPassword1" class="col-sm-2 col-form-label offset-sm-1">旧パスワード1</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" id="oldPassword1" placeholder="旧パスワード1">
+                  </div>
+                </div>
+                <div class="form-group row col-sm-12">
+                  <label for="oldPassword2" class="col-sm-2 col-form-label offset-sm-1">旧パスワード2</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" id="oldPassword2" placeholder="旧パスワード2">
+                  </div>
+                </div>
+                <div class="form-group row col-sm-12">
+                  <label for="oldPassword3" class="col-sm-2 col-form-label offset-sm-1">旧パスワード3</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" id="oldPassword3" placeholder="旧パスワード3">
+                  </div>
+                </div>
+              </div><!-- /.collapse -->
+            </div><!-- /.旧パスワード -->
+            <hr>
+            <!-- 備考 -->
+            <div class="form-group row col-sm-12">
+              <label for="biko" class="col-sm-2 col-form-label">備考<span
+                  class="badge badge-secondary ml-2">任意</span></label>
+              <div class="col-sm-8">
+                <textarea class="form-control" id="biko" rows="3" placeholder="備考..."></textarea>
               </div>
             </div>
           </div><!-- contents-body -->
-          <div class="contents-footer">
-            <button type="button" class="btn btn-secondary">戻る</button>
-            <button type="submit" class="btn btn-info">登録</button>
-            <button type="button" class="btn btn-primary">更新</button>
+          <div class="contents-footer border-0">
+            <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="_submit()">上記内容で登録する</button>
           </div>
         </div><!-- contents -->
       </form>
