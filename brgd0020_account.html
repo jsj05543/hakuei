@@ -19,6 +19,11 @@
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
     crossorigin="anonymous"></script>
   <script src="js/common.js"></script>
+  <style>
+    .card-link {
+      text-decoration: underline;
+    }
+  </style>
   <script>
     $(function () {
       // Shift-JISに変更する場合
@@ -28,6 +33,14 @@
         }
       });
     });
+    function editUser() {
+      document.forms["from"].action = "brgd0051_user.html";
+    }
+    function delUser() {
+      if (window.confirm("選択したユーザを削除します。\nよろしいですか？")) {
+        document.forms["from"].submit();
+      }
+    }
   </script>
 </head>
 
@@ -42,131 +55,108 @@
       <form>
         <div class="contents">
           <div name="contents-header" class="contents-header">アカウント検索</div>
-          <div class="contents-body" style="border: 0;">
+          <div class="contents-body border-0">
             <!-- 国区分 -->
-            <div class="form-group">
-              <div class="radio">
-                <label class="radio-inline" for="Inputradiocountry">国区分</label>
-                <label class="radio-inline font-weight-normal">
-                  <input type="radio" name="radioall" value="3" checked> 全て</label>
-                <label class="radio-inline font-weight-normal">
-                  <input type="radio" name="China" value="1"> 中国</label>
-                <label class="radio-inline font-weight-normal">
-                  <input type="radio" name="Japen" value="2"> 日本</label>
+            <div class="form-group row  col-sm-12">
+              <label for="sex" class="col-sm-2 col-form-label">国区分<span
+                  class="badge badge-danger ml-2">必須</span></label>
+              <div class="form-check form-check-inline ml-3">
+                <input class="form-check-input" type="radio" name="countryKbn" id="allCountry"" value=" 1" checked>
+                <label class="form-check-label" for="man">全て</label>
               </div>
-              <input type="text" id="exampleInputtext" class="form-control col-md-4" placeholder="ネット名を入してください">
+              <div class="form-check form-check-inline pl-5">
+                <input class="form-check-input" type="radio" name="countryKbn" id="japan" value="2">
+                <label class="form-check-label" for="women">日本</label>
+              </div>
+              <div class="form-check form-check-inline pl-5">
+                <input class="form-check-input" type="radio" name="countryKbn" id="china" value="3">
+                <label class="form-check-label" for="women">中国</label>
+              </div>
             </div>
-            <div class="form-group">
-              <button type="button" class="btn btn-info">検索</button>
+            <div class="form-group row  col-sm-12">
+              <label for="accountUsedName" class="col-sm-2 col-form-label">アカウント利用先名</label>
+              <div class="col-sm-5">
+                <input type="text" class="form-control" id="accountUsedName" placeholder="アカウント利用先名を入してください">
+              </div>
+            </div>
+            <div class="form-group row  col-sm-7">
+              <button type="submit" class="btn btn-info btn-block" onclick="_submit()">上記内容で検索する</button>
             </div>
           </div><!-- contents-body -->
         </div><!-- contents -->
         <div class="contents">
-          <div name="contents-header" class="contents-header">検索結果</div>
+          <div name="contents-header" class="contents-header">検索結果一覧</div>
           <div class="contents-subheader">検索結果:123件</div>
-          <div class="contents-body">
+          <div class="contents-body border-0">
             <table class="table table-striped table-hover table-bordered">
               <thead>
                 <tr>
                   <th>選択</th>
-                  <th>ネット名</th>
-                  <th>アカウント</th>
+                  <th>アカウント利用先名</th>
+                  <th>利用先絵説明</th>
+                  <th>アカウント名</th>
                   <th>パスワード</th>
+                  <th>国区分</th>
+                  <th>施設区分</th>
+                  <th>権限区分</th>
                   <th>備考</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="customCheck1">
-                      <label class="custom-control-label" for="customCheck1"></label>
+                    <div class="form-check">
+                      <input class="form-check-input position-static" type="radio" name="blankRadio" id="blankRadio1"
+                        value="option1" aria-label="...">
                     </div>
                   </td>
-                  <td>facebook</td>
-                  <td>burgud@burgud.com</td>
-                  <td>burgud</td>
+                  <td><a href="#" class="card-link" title="照会する">facebook</a></td>
+                  <td>facebook.com</td>
+                  <td>hakuei2011</td>
+                  <td>a1342yb</td>
+                  <td>日本</td>
+                  <td>WEB</td>
+                  <td>管理者</td>
                   <td>備考1</td>
                 </tr>
                 <tr>
                   <td>
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="customCheck1">
-                      <label class="custom-control-label" for="customCheck1"></label>
+                    <div class="form-check">
+                      <input class="form-check-input position-static" type="radio" name="blankRadio" id="blankRadio1"
+                        value="option1" aria-label="...">
                     </div>
                   </td>
-                  <td>facebook</td>
-                  <td>burgud@burgud.com</td>
-                  <td>burgud</td>
-                  <td>備考1</td>
+                  <td><a href="#" class="card-link" title="照会する">facebook</a></td>
+                  <td>facebook.com</td>
+                  <td>hakuei2011</td>
+                  <td>a1342yb</td>
+                  <td>日本</td>
+                  <td>WEB</td>
+                  <td>管理者</td>
+                  <td>備考1備考1備考1備考1備考1</td>
                 </tr>
                 <tr>
                   <td>
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="customCheck1">
-                      <label class="custom-control-label" for="customCheck1"></label>
+                    <div class="form-check">
+                      <input class="form-check-input position-static" type="radio" name="blankRadio" id="blankRadio1"
+                        value="option1" aria-label="...">
                     </div>
                   </td>
-                  <td>facebook</td>
-                  <td>burgud@burgud.com</td>
-                  <td>burgud</td>
-                  <td>備考1</td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="customCheck1">
-                      <label class="custom-control-label" for="customCheck1"></label>
-                    </div>
-                  </td>
-                  <td>facebook</td>
-                  <td>burgud@burgud.com</td>
-                  <td>burgud</td>
-                  <td>備考1</td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="customCheck1">
-                      <label class="custom-control-label" for="customCheck1"></label>
-                    </div>
-                  </td>
-                  <td>facebook</td>
-                  <td>burgud@burgud.com</td>
-                  <td>burgud</td>
-                  <td>備考1</td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="customCheck1">
-                      <label class="custom-control-label" for="customCheck1"></label>
-                    </div>
-                  </td>
-                  <td>facebook</td>
-                  <td>burgud@burgud.com</td>
-                  <td>burgud</td>
-                  <td>備考1</td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="customCheck1">
-                      <label class="custom-control-label" for="customCheck1"></label>
-                    </div>
-                  </td>
-                  <td>facebook</td>
-                  <td>burgud@burgud.com</td>
-                  <td>burgud</td>
+                  <td><a href="#" class="card-link" title="照会する">facebook</a></td>
+                  <td>facebook.com</td>
+                  <td>hakuei2011</td>
+                  <td>a1342yb</td>
+                  <td>日本</td>
+                  <td>WEB</td>
+                  <td>管理者</td>
                   <td>備考1</td>
                 </tr>
               </tbody>
             </table>
           </div><!-- contents-body -->
           <div class="contents-footer">
-            <button type="button" class="btn btn-success">詳細</button>
-            <button type="button" class="btn btn-primary">編集</button>
-            <button type="button" class="btn btn-danger">削除</button>
+            <button type="button" class="btn btn-primary" onclick="editUser()">編集</button>
+            <button type="button" class="btn btn-danger" onclick="delUser()">削除</button>
           </div>
         </div><!-- contents -->
       </form><!-- from -->
