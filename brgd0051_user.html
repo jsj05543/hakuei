@@ -8,10 +8,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
+
+
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-            
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link rel="shortcut icon" href="img/favicon.ico" type="favicon.ico" />
         <link rel="stylesheet" href="css/style.css">
@@ -20,6 +21,13 @@
         <script src="https://code.jquery.com/jquery-3.5.1.js"
             integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         <script src="js/common.js"></script>
+        <!-- カレンダ CSS -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/ja.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js"></script>
         <script>
             $(function () {
                 // validation
@@ -44,10 +52,16 @@
                         xhr.overrideMimeType("text/html;charset=Shift_JIS");
                     }
                 });
+                //日付入力フォーマット
+                $('#birthGroup').datetimepicker({
+                    locale: 'ja',
+                    dayViewHeaderFormat: 'YYYY年 M月',
+                    format: 'YYYY/MM/DD'
+                });
 
                 $('#zip').change(function () {
                     //入力値をセット
-                    var param = {zipcode: $('#zip').val()}
+                    var param = { zipcode: $('#zip').val() }
                     //zipcloudのAPIのURL
                     var send_url = "http://zipcloud.ibsnet.co.jp/api/search";
                     $.ajax({
@@ -66,7 +80,7 @@
                                     var address1 = result.address1;
                                     var address2 = result.address2;
                                     var address3 = result.address3;
-                                    var address = address1+address2+address3;
+                                    var address = address1 + address2 + address3;
                                     $('#address1').val(address);
                                 }
                             }
@@ -96,7 +110,7 @@
                         <div class="contents-header">ユーザ登録</div>
                         <div class="contents-body">
                             <!-- ユーザID -->
-                            <div class="form-group row  col-sm-12">
+                            <div class="form-group row  col-sm-12 mt-3">
                                 <label for="userId" class="col-sm-2 col-form-label">ユーザID<span
                                         class="badge badge-danger ml-2">必須</span></label>
                                 <div class="col-sm-5">
@@ -128,17 +142,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- 生年月日 -->
-                            <div class="form-group row  col-sm-12">
-                                <label for="birth" class="col-sm-2 col-form-label">生年月日<span
-                                        class="badge badge-danger ml-2">必須</span></label>
-                                <div class="col-sm-5">
-                                    <input type="text" class="form-control" id="birth" placeholder="生年月日" required>
-                                    <div class="invalid-feedback">
-                                        生年月日が入力されていません
-                                    </div>
-                                </div>
-                            </div>
                             <!-- 性別 -->
                             <div class="form-group row  col-sm-12">
                                 <label for="sex" class="col-sm-2 col-form-label">性別<span
@@ -152,6 +155,25 @@
                                     <label class="form-check-label" for="women">女</label>
                                 </div>
                             </div>
+                            <!-- 生年月日 -->
+                            <div class="form-group row  col-sm-12">
+                                <label for="birth" class="col-sm-2 col-form-label">生年月日<span
+                                        class="badge badge-danger ml-2">必須</span></label>
+                                <div class="col-sm-5">
+                                    <div class="input-group date" id="birthGroup" class="datetimepicker"
+                                        data-target-input="nearest">
+                                        <input type="text" id="birth" name="birth" placeholder="yyyy/mm/dd"
+                                            class="form-control datetimepicker-input" data-target="#birthGroup">
+                                        <div class="input-group-append" data-target="#birthGroup"
+                                            data-toggle="datetimepicker" style="overflow: visible;">
+                                            <div class="input-group-text">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!-- メールアドレス -->
                             <div class="form-group row  col-sm-12">
                                 <label for="email" class="col-sm-2 col-form-label">メールアドレス<span
@@ -185,7 +207,8 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
-                                    <small id="passwordHelpBlock" class="form-text text-muted">※郵便番号のフォーカスで住所1は自動入力</small>
+                                    <small id="passwordHelpBlock"
+                                        class="form-text text-muted">※郵便番号のフォーカスで住所1は自動入力</small>
                                 </div>
                             </div>
                             <!-- 住所1 -->
